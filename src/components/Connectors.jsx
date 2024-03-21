@@ -51,10 +51,10 @@ function Connectors() {
     <Canvas
       gl={{ antialias: true }}
       style={{ width: "100%", height: "450px" }}
-      camera={{ fov: 40, position: [0, 0, 15] }}
+      camera={{ fov: 30, position: [0, 0, 15] }}
     >
       <color attach="background" args={["black"]} />
-      <ambientLight intensity={0.4} />
+      <ambientLight intensity={1} />
       <spotLight
         position={[10, 10, 10]}
         angle={0.15}
