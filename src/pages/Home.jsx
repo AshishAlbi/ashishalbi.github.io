@@ -4,10 +4,12 @@ import Connectors from "../components/Connectors";
 import HomePageCss from "./Home.module.css";
 import { Box, Container, Typography } from "@mui/material";
 import Typed from "typed.js";
+import Projects from "./Projects";
 
 function Home() {
   const homeRef = useRef(null);
   const aboutRef = useRef(null);
+  const projectRef = useRef(null)
   const typeRef = useRef(null);
   const scrollToComponent = (componentRef) => {
     if (componentRef.current) {
@@ -32,6 +34,7 @@ function Home() {
       <Navbar
         scrollToHome={() => scrollToComponent(homeRef)}
         scrollToAbout={() => scrollToComponent(aboutRef)}
+        scrollToProject={() => scrollToComponent(projectRef)}
       />
       <Box
         sx={{
@@ -75,6 +78,9 @@ function Home() {
         esse cumque expedita cum perferendis maiores voluptatum consectetur
         exercitationem, sit ut repellendus temporibus, tenetur nam explicabo
         eius et, illo itaque voluptatem!
+      </div>
+      <div ref={projectRef}>
+        <Projects/>
       </div>
     </div>
   );

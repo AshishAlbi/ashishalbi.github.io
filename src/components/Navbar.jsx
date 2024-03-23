@@ -2,7 +2,7 @@ import { Box, IconButton, Menu, MenuItem, Typography } from "@mui/material";
 import React, { useState } from "react";
 import { BurgerClose } from "react-burger-icons";
 
-function Navbar({ scrollToHome, scrollToAbout }) {
+function Navbar({ scrollToHome, scrollToAbout, scrollToProject}) {
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
@@ -15,7 +15,8 @@ function Navbar({ scrollToHome, scrollToAbout }) {
     <Box
       color={"whitesmoke"}
       sx={{
-        backgroundColor: "black",
+        backgroundColor: "transparent",
+        backdropFilter: 'blur(8px)',
         display: "flex",
         position: "sticky",
         top: 0,
@@ -37,6 +38,9 @@ function Navbar({ scrollToHome, scrollToAbout }) {
       >
         <MenuItem label="Home" onClick={scrollToHome}>
           Home
+        </MenuItem>
+        <MenuItem label="Projects" onClick={scrollToProject}>
+          Projects
         </MenuItem>
         <MenuItem label="About" onClick={scrollToAbout}>
           About
