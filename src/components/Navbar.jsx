@@ -59,6 +59,7 @@ function Navbar({ scrollToHome, scrollToAbout, scrollToProject}) {
         </IconButton>
         <Menu anchorEl={anchorEl} open={open} onClose={handleClose}>
           <MenuItem onClick={scrollToHome}>Home</MenuItem>
+          <MenuItem onClick={scrollToProject}>Projects</MenuItem>
           <MenuItem onClick={scrollToAbout}>About</MenuItem>
           <MenuItem>Contact</MenuItem>
         </Menu>

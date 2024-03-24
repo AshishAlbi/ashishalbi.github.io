@@ -1,10 +1,10 @@
 import React, { useEffect, useRef } from "react";
 import Navbar from "../components/Navbar";
 import Connectors from "../components/Connectors";
-import HomePageCss from "./Home.module.css";
-import { Box, Container, Typography } from "@mui/material";
+import { Box, Container, Paper, Typography } from "@mui/material";
 import Typed from "typed.js";
 import Projects from "./Projects";
+import Experience from "./Experience";
 
 function Home() {
   const homeRef = useRef(null);
@@ -65,6 +65,12 @@ function Home() {
         </Container>
         <Connectors />
       </Box>
+      <Paper sx={{backgroundColor:'black'}}>
+        <Experience/>
+      </Paper>
+      <Paper ref={projectRef } sx={{backgroundColor:'black'}}>
+        <Projects/>
+      </Paper>
       <div
         ref={aboutRef}
         style={{
@@ -78,9 +84,6 @@ function Home() {
         esse cumque expedita cum perferendis maiores voluptatum consectetur
         exercitationem, sit ut repellendus temporibus, tenetur nam explicabo
         eius et, illo itaque voluptatem!
-      </div>
-      <div ref={projectRef}>
-        <Projects/>
       </div>
     </div>
   );
