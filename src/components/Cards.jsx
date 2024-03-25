@@ -16,7 +16,7 @@ function Cards({projectName}) {
         color: "white",
       }}>
       <CardMedia
-        sx={{ height: 140 }}
+        sx={{ height: 140,objectFit:'contain' }}
         image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ97H9EKumm61GQCKNxBAhzQrPL7k9QlOGxrw&usqp=CAU"
         title="green iguana"
       />

@@ -1,10 +1,7 @@
-import { useRef, useReducer, useMemo } from "react";
+import { useRef, useMemo, memo } from "react";
 import * as THREE from "three";
 import { Canvas, useFrame } from "@react-three/fiber";
-import {
-  Environment,
-  Lightformer,
-} from "@react-three/drei";
+import { Environment, Lightformer } from "@react-three/drei";
 import {
   BallCollider,
   CuboidCollider,
@@ -13,45 +10,23 @@ import {
 } from "@react-three/rapier";
 import { EffectComposer, N8AO } from "@react-three/postprocessing";
 import { easing } from "maath";
+import { isMobileDevice } from "../utils/isMobile";
 
-const accents = ["#4060ff", "#00fbff", "#20ffa0", "#ff4060", "#ffcc00"];
-const shuffle = (accent = 0) => [
-  { color: "white" },
-  { color: "white" },
-  { color: "white" },
-  { color: "white" },
-  { color: "white" },
-  { color: "white" },
-  { color: "white" },
-  { color: "white" },
-  { color: "white" },
-  { color: "white" },
-  { color: "white" },
-  { color: accents[accent], accent: true },
-  { color: accents[accent], accent: true },
-  { color: accents[accent], accent: true },
-  { color: accents[accent], accent: true },
-  { color: accents[accent], accent: true },
-  { color: accents[accent], accent: true },
-  { color: accents[accent], accent: true },
-  { color: accents[accent], accent: true },
-  { color: accents[accent], accent: true },
-  { color: accents[accent], accent: true },
-  { color: accents[accent], accent: true },
-  { color: accents[accent], accent: true },
-  { color: accents[accent], accent: true },
-  { color: accents[accent], accent: true },
-  { color: accents[accent], accent: true },
-];
+const shuffle = (number) => {
+  const elements = [{ color: "white" }, { color: "#4060ff" }];
+  return Array(number)
+    .fill()
+    .flatMap(() => elements);
+};
 
-function Connectors() {
-  const [accent, click] = useReducer((state) => ++state % accents.length, 0);
-  const connectors = useMemo(() => shuffle(accent), [accent]);
+const Connectors = () => {
+  const number = isMobileDevice() ? 3 : 5;
+  const connectors = useMemo(() => shuffle(number), [number]);
   return (
     <Canvas
       gl={{ antialias: true }}
-      style={{ width: "100%", height: "450px" }}
-      camera={{ fov: 30, position: [0, 0, 15] }}
+      style={{ width: "100%", height: "100%", borderRadius: "30px" }}
+      camera={{ fov: 40, position: [0, 0, 5] }}
     >
       <color attach="background" args={["black"]} />
       <ambientLight intensity={1} />
@@ -64,9 +39,9 @@ function Connectors() {
       />
       <Physics gravity={[0, 0, 0]}>
         <Pointer />
-        {
-          connectors.map((props, i) => <Connector key={i} {...props} />) /* prettier-ignore */
-        }
+        {connectors.map((props, i) => (
+          <Connector key={i} {...props} />
+        ))}
         <Connector position={[10, 10, 5]}>
           <Model />
         </Connector>
@@ -74,7 +49,7 @@ function Connectors() {
       <EffectComposer disableNormalPass multisampling={8}>
         <N8AO distanceFalloff={1} aoRadius={1} intensity={4} />
       </EffectComposer>
-      <Environment resolution={256}>
+      <Environment resolution={256} preset="night">
         <group rotation={[-Math.PI / 3, 0, 1]}>
           <Lightformer
             form="circle"
@@ -108,23 +83,26 @@ function Connectors() {
       </Environment>
     </Canvas>
   );
-}
+};
 
-function Connector({
-  position,
-  children,
-  vec = new THREE.Vector3(),
-  scale,
-  r = THREE.MathUtils.randFloatSpread,
-  accent,
-  ...props
-}) {
+const Connector = memo(({ position, children, color, accent }) => {
   const api = useRef();
-  const pos = useMemo(() => position || [r(10), r(10), r(10)], []);
+  const pos = useMemo(
+    () =>
+      position || [
+        THREE.MathUtils.randFloatSpread(10),
+        THREE.MathUtils.randFloatSpread(10),
+        THREE.MathUtils.randFloatSpread(10),
+      ],
+    [position]
+  );
   useFrame((state, delta) => {
     delta = Math.min(0.1, delta);
     api.current?.applyImpulse(
-      vec.copy(api.current.translation()).negate().multiplyScalar(0.2)
+      new THREE.Vector3()
+        .copy(api.current.translation())
+        .negate()
+        .multiplyScalar(0.2)
     );
   });
   return (
@@ -136,17 +114,16 @@ function Connector({
       ref={api}
       colliders={false}
     >
-      <CuboidCollider args={[1, 1, 1]} />
-      {children ? children : <Model {...props} />}
-      {accent && (
-        <pointLight intensity={4} distance={2.5} color={props.color} />
-      )}
+      <CuboidCollider args={[0.5, 0.5, 0.5]} />
+      {children ? children : <Model color={color} />}
+      {accent && <pointLight intensity={4} distance={2.5} color={color} />}
     </RigidBody>
   );
-}
+});
 
-function Pointer({ vec = new THREE.Vector3() }) {
+const Pointer = () => {
   const ref = useRef();
+  const vec = useMemo(() => new THREE.Vector3(), []);
   useFrame(({ pointer, viewport }) => {
     ref.current?.setNextKinematicTranslation(
       vec.set(
@@ -166,20 +143,19 @@ function Pointer({ vec = new THREE.Vector3() }) {
       <BallCollider args={[1]} />
     </RigidBody>
   );
-}
+};
 
-function Model({ children, color = "white", roughness = 0 }) {
+const Model = ({ color = "white", roughness = 0 }) => {
   const ref = useRef();
   useFrame((state, delta) => {
     easing.dampC(ref.current.material.color, color, 0.2, delta);
   });
   return (
     <mesh ref={ref} castShadow receiveShadow>
-      <boxGeometry args={[2, 2, 2]} />
-      <meshToonMaterial metalness={0} roughness={roughness} />
-      {children}
+      <boxGeometry args={[1, 1, 1]} />
+      <meshStandardMaterial metalness={0} roughness={roughness} />
     </mesh>
   );
-}
+};
 
 export default Connectors;

@@ -15,12 +15,13 @@ function Navbar({ scrollToHome, scrollToAbout, scrollToProject}) {
     <Box
       color={"whitesmoke"}
       sx={{
+        width: "100%",
         backgroundColor: "transparent",
         backdropFilter: 'blur(8px)',
         display: "flex",
-        position: "sticky",
-        top: 0,
-        zIndex: "1",
+        position: "fixed",
+        top:'0',
+        zIndex: "2",
         borderBottom: "1px solid white",
       }}
       padding={1}

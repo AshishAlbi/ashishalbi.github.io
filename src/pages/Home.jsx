@@ -9,7 +9,7 @@ import Experience from "./Experience";
 function Home() {
   const homeRef = useRef(null);
   const aboutRef = useRef(null);
-  const projectRef = useRef(null)
+  const projectRef = useRef(null);
   const typeRef = useRef(null);
   const scrollToComponent = (componentRef) => {
     if (componentRef.current) {
@@ -30,62 +30,80 @@ function Home() {
     };
   }, []);
   return (
-    <div style={{ backgroundColor: "black" }} ref={homeRef}>
+    <Paper sx={{ backgroundColor: "black" }}>
       <Navbar
         scrollToHome={() => scrollToComponent(homeRef)}
         scrollToAbout={() => scrollToComponent(aboutRef)}
         scrollToProject={() => scrollToComponent(projectRef)}
       />
-      <Box
+      <Paper
+        ref={homeRef}
         sx={{
           backgroundColor: "black",
-          display: "flex",
-          flexDirection: { xs: "column", md: "row" },
-          padding: "2%",
-          gap:{md:0 , xs:"10px"}
+          padding: "2% 0 0",
         }}
       >
-        <Container
-          sx={{
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            alignItems:"center"
-          }}
-        >
-          <Box sx={{width:{md:"50%",xs:"90%"},padding:"5%", border:"1px solid grey", boxShadow:"10px 10px 15px 0px rgba(107,103,107,1)"}}>
-            <span ref={typeRef} style={{ color: "white" }}></span>
-            <Typography color={"greenyellow"} variant="h6">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Blanditiis repudiandae ipsam, expedita ad veritatis illo non dicta
-              inventore culpa mollitia! Provident modi laborum nulla nisi saepe
-              architecto eum distinctio quia!
-            </Typography>
-          </Box>
-        </Container>
-        <Connectors />
-      </Box>
-      <Paper sx={{backgroundColor:'black'}}>
-        <Experience/>
+        <Paper sx={{ height: "90vh", backgroundColor: "black" }}>
+          <Paper
+            sx={{
+              padding: "24px",
+              // border: "1px solid grey",
+              position: "absolute",
+              backgroundColor: "rgba(0, 0, 0, 0.4)",
+              zIndex: 1,
+              height: "85vh",
+              pointerEvents: "none",
+              borderRadius: "30px",
+            }}
+          >
+            <Box paddingTop={20} sx>
+              <span
+                ref={typeRef}
+                style={{
+                  color: "white",
+                  fontWeight: "bolder",
+                  fontFamily: "monospace",
+                  fontSize: 20,
+                }}
+              />
+              <Typography color={"snow"} variant="h6" fontWeight={"lighter"}>
+                Experienced software developer with over 1.8 years of expertise
+                in designing, developing, and maintaining software systems, with
+                a particular emphasis on web design. Proficient in various
+                platforms, languages, and frameworks, including React, Django
+                and Express JS. Demonstrates effective self-management in
+                independent projects and excels as a collaborative team member.
+                Proven track record in delivering high-quality solutions within
+                dynamic work environments.
+              </Typography>
+            </Box>
+          </Paper>
+          <Connectors />
+          <Paper sx={{ backgroundColor: "black", padding: "5%" }}>
+            <Experience />
+          </Paper>
+          <Paper
+            ref={projectRef}
+            sx={{ backgroundColor: "black", padding: "5%" }}
+          >
+            {console.log(projectRef)}
+            <Projects />
+          </Paper>
+          <Paper
+            ref={aboutRef}
+            sx={{
+              backgroundColor: "black",
+              color: "white",
+            }}
+          >
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium
+            esse cumque expedita cum perferendis maiores voluptatum consectetur
+            exercitationem, sit ut repellendus temporibus, tenetur nam explicabo
+            eius et, illo itaque voluptatem!
+          </Paper>
+        </Paper>
       </Paper>
-      <Paper ref={projectRef } sx={{backgroundColor:'black'}}>
-        <Projects/>
-      </Paper>
-      <div
-        ref={aboutRef}
-        style={{
-          backgroundColor: "black",
-          width: "100vw",
-          height: "80vh",
-          color: "white",
-        }}
-      >
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium
-        esse cumque expedita cum perferendis maiores voluptatum consectetur
-        exercitationem, sit ut repellendus temporibus, tenetur nam explicabo
-        eius et, illo itaque voluptatem!
-      </div>
-    </div>
+    </Paper>
   );
 }
 
