@@ -2,7 +2,12 @@ import { Box, IconButton, Menu, MenuItem, Typography } from "@mui/material";
 import React, { useState } from "react";
 import { BurgerClose } from "react-burger-icons";
 
-function Navbar({ scrollToHome, scrollToAbout, scrollToProject}) {
+function Navbar({
+  scrollToHome,
+  scrollToAbout,
+  scrollToProject,
+  scrollToExperience,
+}) {
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
@@ -17,10 +22,10 @@ function Navbar({ scrollToHome, scrollToAbout, scrollToProject}) {
       sx={{
         width: "100%",
         backgroundColor: "transparent",
-        backdropFilter: 'blur(8px)',
+        backdropFilter: "blur(8px)",
         display: "flex",
         position: "fixed",
-        top:'0',
+        top: "0",
         zIndex: "2",
         borderBottom: "1px solid white",
       }}
@@ -39,6 +44,9 @@ function Navbar({ scrollToHome, scrollToAbout, scrollToProject}) {
       >
         <MenuItem label="Home" onClick={scrollToHome}>
           Home
+        </MenuItem>
+        <MenuItem label="Experience" onClick={scrollToExperience}>
+          Experience
         </MenuItem>
         <MenuItem label="Projects" onClick={scrollToProject}>
           Projects
@@ -60,6 +68,7 @@ function Navbar({ scrollToHome, scrollToAbout, scrollToProject}) {
         </IconButton>
         <Menu anchorEl={anchorEl} open={open} onClose={handleClose}>
           <MenuItem onClick={scrollToHome}>Home</MenuItem>
+          <MenuItem onClick={scrollToExperience}>Experience</MenuItem>
           <MenuItem onClick={scrollToProject}>Projects</MenuItem>
           <MenuItem onClick={scrollToAbout}>About</MenuItem>
           <MenuItem>Contact</MenuItem>

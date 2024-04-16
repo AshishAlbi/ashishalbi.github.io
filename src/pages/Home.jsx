@@ -9,6 +9,7 @@ import Experience from "./Experience";
 function Home() {
   const homeRef = useRef(null);
   const aboutRef = useRef(null);
+  const experienceRef = useRef(null);
   const projectRef = useRef(null);
   const typeRef = useRef(null);
   const scrollToComponent = (componentRef) => {
@@ -35,6 +36,7 @@ function Home() {
         scrollToHome={() => scrollToComponent(homeRef)}
         scrollToAbout={() => scrollToComponent(aboutRef)}
         scrollToProject={() => scrollToComponent(projectRef)}
+        scrollToExperience={() => scrollToComponent(experienceRef)}
       />
       <Paper
         ref={homeRef}
@@ -43,65 +45,69 @@ function Home() {
           padding: "2% 0 0",
         }}
       >
-        <Paper sx={{ height: "90vh", backgroundColor: "black" }}>
-          <Paper
-            sx={{
-              padding: "24px",
-              // border: "1px solid grey",
-              position: "absolute",
-              backgroundColor: "rgba(0, 0, 0, 0.4)",
-              zIndex: 1,
-              height: "85vh",
-              pointerEvents: "none",
-              borderRadius: "30px",
-            }}
-          >
-            <Box paddingTop={20} sx>
-              <span
-                ref={typeRef}
-                style={{
-                  color: "white",
-                  fontWeight: "bolder",
-                  fontFamily: "monospace",
-                  fontSize: 20,
-                }}
-              />
-              <Typography color={"snow"} variant="h6" fontWeight={"lighter"}>
-                Experienced software developer with over 1.8 years of expertise
-                in designing, developing, and maintaining software systems, with
-                a particular emphasis on web design. Proficient in various
-                platforms, languages, and frameworks, including React, Django
-                and Express JS. Demonstrates effective self-management in
-                independent projects and excels as a collaborative team member.
-                Proven track record in delivering high-quality solutions within
-                dynamic work environments.
-              </Typography>
-            </Box>
+        <Container maxWidth='xl'>
+          <Paper sx={{ height: "90vh", backgroundColor: "black" }}>
+            <Paper
+              sx={{
+                padding: "24px",
+                position: "absolute",
+                backgroundColor: "rgba(0, 0, 0, 0.4)",
+                zIndex: 1,
+                height: "85vh",
+                pointerEvents: "none",
+                borderRadius: "30px",
+              }}
+            >
+              <Box paddingTop={20} sx>
+                <span
+                  ref={typeRef}
+                  style={{
+                    color: "white",
+                    fontWeight: "bolder",
+                    fontFamily: "monospace",
+                    fontSize: 20,
+                  }}
+                />
+                <Typography color={"snow"} variant="h6" fontWeight={"lighter"}>
+                  Hi, I'm [Your Name], Experienced software developer with over
+                  1.8 years of expertise in designing, developing, and
+                  maintaining software systems, with a particular emphasis on
+                  web design. Proficient in various platforms, languages, and
+                  frameworks, including React, Django and Express JS.
+                  Demonstrates effective self-management in independent projects
+                  and excels as a collaborative team member. Proven track record
+                  in delivering high-quality solutions within dynamic work
+                  environments.
+                </Typography>
+              </Box>
+            </Paper>
+            <Connectors />
+            <Paper
+              ref={experienceRef}
+              sx={{ backgroundColor: "black", padding: "5%" }}
+            >
+              <Experience />
+            </Paper>
+            <Paper
+              ref={projectRef}
+              sx={{ backgroundColor: "black", padding: "5%" }}
+            >
+              <Projects />
+            </Paper>
+            <Paper
+              ref={aboutRef}
+              sx={{
+                backgroundColor: "black",
+                color: "white",
+              }}
+            >
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Accusantium esse cumque expedita cum perferendis maiores
+              voluptatum consectetur exercitationem, sit ut repellendus
+              temporibus, tenetur nam explicabo eius et, illo itaque voluptatem!
+            </Paper>
           </Paper>
-          <Connectors />
-          <Paper sx={{ backgroundColor: "black", padding: "5%" }}>
-            <Experience />
-          </Paper>
-          <Paper
-            ref={projectRef}
-            sx={{ backgroundColor: "black", padding: "5%" }}
-          >
-            {console.log(projectRef)}
-            <Projects />
-          </Paper>
-          <Paper
-            ref={aboutRef}
-            sx={{
-              backgroundColor: "black",
-              color: "white",
-            }}
-          >
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium
-            esse cumque expedita cum perferendis maiores voluptatum consectetur
-            exercitationem, sit ut repellendus temporibus, tenetur nam explicabo
-            eius et, illo itaque voluptatem!
-          </Paper>
-        </Paper>
+        </Container>
       </Paper>
     </Paper>
   );
