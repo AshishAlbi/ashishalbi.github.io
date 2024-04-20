@@ -20,13 +20,13 @@ const shuffle = (number) => {
 };
 
 const Connectors = () => {
-  const number = isMobileDevice() ? 3 : 5;
+  const number = isMobileDevice() ? 2 : 7;
   const connectors = useMemo(() => shuffle(number), [number]);
   return (
     <Canvas
       gl={{ antialias: true }}
       style={{ width: "100%", height: "100%", borderRadius: "30px" }}
-      camera={{ fov: 40, position: [0, 0, 5] }}
+      camera={{ fov: 40, position: [0, 0, 8] }}
     >
       <color attach="background" args={["black"]} />
       <ambientLight intensity={1} />
@@ -114,7 +114,7 @@ const Connector = memo(({ position, children, color, accent }) => {
       ref={api}
       colliders={false}
     >
-      <CuboidCollider args={[0.5, 0.5, 0.5]} />
+      <BallCollider args={[1]} />
       {children ? children : <Model color={color} />}
       {accent && <pointLight intensity={4} distance={2.5} color={color} />}
     </RigidBody>
@@ -152,7 +152,7 @@ const Model = ({ color = "white", roughness = 0 }) => {
   });
   return (
     <mesh ref={ref} castShadow receiveShadow>
-      <boxGeometry args={[1, 1, 1]} />
+      <sphereGeometry args={[1]} />
       <meshStandardMaterial metalness={0} roughness={roughness} />
     </mesh>
   );
