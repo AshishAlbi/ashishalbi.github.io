@@ -5,7 +5,7 @@ import { Box, Container, Paper, Typography } from "@mui/material";
 import Typed from "typed.js";
 import Projects from "./Projects";
 // import Experience from "./Experience";
-const Experience = lazy(()=> import("./Experience"))
+const Experience = lazy(() => import("./Experience"));
 
 function Home() {
   const homeRef = useRef(null);
@@ -32,7 +32,7 @@ function Home() {
     };
   }, []);
   return (
-    <Paper sx={{ backgroundColor: "black"}}>
+    <Paper sx={{ backgroundColor: "black" }}>
       <Navbar
         scrollToHome={() => scrollToComponent(homeRef)}
         scrollToAbout={() => scrollToComponent(aboutRef)}
@@ -42,47 +42,57 @@ function Home() {
       <Paper
         ref={homeRef}
         sx={{
-          height:'250vh',
+          height: "250vh",
           backgroundColor: "black",
           padding: "2% 0 0",
         }}
       >
         <Paper sx={{ height: "90vh", backgroundColor: "black" }}>
-          <Paper
-            sx={{
-              padding: "24px",
-              position: "absolute",
-              backgroundColor: "rgba(0, 0, 0, 0.4)",
-              zIndex: 1,
-              height: "85vh",
-              pointerEvents: "none",
-              borderRadius: "30px",
-            }}
-          >
-            <Box paddingTop={20} sx>
-              <span
-                ref={typeRef}
-                style={{
-                  color: "white",
-                  fontWeight: "bolder",
-                  fontFamily: "monospace",
-                  fontSize: 20,
-                }}
-              />
-              <Typography color={"snow"} variant="h6" fontWeight={"lighter"}>
-                Hi, I'm [Your Name], Experienced software developer with over
-                1.8 years of expertise in designing, developing, and maintaining
-                software systems, with a particular emphasis on web design.
-                Proficient in various platforms, languages, and frameworks,
-                including React, Django and Express JS. Demonstrates effective
-                self-management in independent projects and excels as a
-                collaborative team member. Proven track record in delivering
-                high-quality solutions within dynamic work environments.
-              </Typography>
-            </Box>
-          </Paper>
-          <Connectors />
-          <Container sx={{backgroundColor:'black'}} maxWidth='xl'>
+          <Container maxWidth="xl">
+            <Paper
+              sx={{
+                padding: "25px",
+                position: "absolute",
+                backgroundColor: "rgba(0, 0, 0, .4)",
+                zIndex: 1,
+                height: "85vh",
+                width: { xs: "85vw", sm: "75vw" },
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+                // alignItems: "center",
+                pointerEvents: "none",
+              }}
+            >
+              <Box>
+                <span
+                  ref={typeRef}
+                  style={{
+                    color: "white",
+                    fontWeight: "bolder",
+                    fontFamily: "sans-serif",
+                    fontSize: 25,
+                  }}
+                />
+                <Typography
+                  color={"snow"}
+                  variant="h5"
+                  sx={{ width: { sm: "80%" ,xs:'100%'} }}
+                >
+                  Hi, I'm Ashish, Experienced software developer with over 2
+                  years of expertise in designing, developing, and maintaining
+                  software systems, with a particular emphasis on web design.
+                  Proficient in various platforms, languages, and frameworks,
+                  including React, Django and Express JS. Demonstrates effective
+                  self-management in independent projects and excels as a
+                  collaborative team member. Proven track record in delivering
+                  high-quality solutions within dynamic work environments.
+                </Typography>
+              </Box>
+            </Paper>
+            <Connectors />
+          </Container>
+          <Container sx={{ backgroundColor: "black" }} maxWidth="xl">
             <Paper
               ref={experienceRef}
               sx={{ backgroundColor: "black", padding: "5%" }}

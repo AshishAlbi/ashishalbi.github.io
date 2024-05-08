@@ -14,7 +14,7 @@ function Cards({ projectName }) {
 
   useGSAP(() => {
     gsap.registerPlugin(ScrollTrigger)
-    gsap.fromTo(cardRef.current, { scale: 0 }, { scrollTrigger:cardRef.current,scale: 1 });
+    gsap.fromTo(cardRef.current, { scale: 0 }, { scrollTrigger:{trigger:cardRef.current,toggleActions:"play pause none pause"},scale: 1 });
   });
 
   return (

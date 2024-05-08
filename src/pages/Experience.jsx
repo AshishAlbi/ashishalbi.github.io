@@ -8,7 +8,7 @@ function Experience() {
     <Stack direction={"column"}>
       <Box sx={{backgroundColor:'black',color:'white'}}>
         <Typography variant="h5">Company</Typography>
-        <Typography>
+        <Typography variant="h6">
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corrupti,
           iusto doloribus, consectetur sunt quia consequatur cupiditate totam
           incidunt culpa velit nisi? Amet at ex perferendis quae labore,
