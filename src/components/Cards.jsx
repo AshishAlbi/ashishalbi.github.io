@@ -5,29 +5,20 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-import { useGSAP } from "@gsap/react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/all";
 
 function Cards({ projectName }) {
   const cardRef = useRef();
-
-  // useGSAP(() => {
-  //   gsap.registerPlugin(ScrollTrigger)
-  //   gsap.fromTo(cardRef.current, { scale: 0 }, { scrollTrigger:{trigger:cardRef.current,toggleActions:"play pause none pause"},scale: 1 });
-  // });
 
   return (
     <Card
       ref={cardRef}
       sx={{
-        width: "70vw",
-        height:'80vh',
+        width: "100%",
+        height: "80vh",
         background:
           "linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(71,76,77,1) 75%)",
         color: "white",
-      }}
-    >
+      }}>
       <CardMedia
         sx={{ height: 140, objectFit: "contain" }}
         image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ97H9EKumm61GQCKNxBAhzQrPL7k9QlOGxrw&usqp=CAU"
