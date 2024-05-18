@@ -24,7 +24,7 @@ function Navbar({
         backgroundColor: "transparent",
         backdropFilter: "blur(8px)",
         display: "flex",
-        position: "fixed",
+        position: "relative",
         top: "0",
         zIndex: "2",
         borderBottom: "1px solid white",

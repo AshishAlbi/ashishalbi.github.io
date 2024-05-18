@@ -12,16 +12,17 @@ import { ScrollTrigger } from "gsap/all";
 function Cards({ projectName }) {
   const cardRef = useRef();
 
-  useGSAP(() => {
-    gsap.registerPlugin(ScrollTrigger)
-    gsap.fromTo(cardRef.current, { scale: 0 }, { scrollTrigger:{trigger:cardRef.current,toggleActions:"play pause none pause"},scale: 1 });
-  });
+  // useGSAP(() => {
+  //   gsap.registerPlugin(ScrollTrigger)
+  //   gsap.fromTo(cardRef.current, { scale: 0 }, { scrollTrigger:{trigger:cardRef.current,toggleActions:"play pause none pause"},scale: 1 });
+  // });
 
   return (
     <Card
       ref={cardRef}
       sx={{
-        maxWidth: 345,
+        width: "70vw",
+        height:'80vh',
         background:
           "linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(71,76,77,1) 75%)",
         color: "white",

@@ -1,9 +1,10 @@
-import React, { lazy, useEffect, useRef } from "react";
+import React, { lazy, useEffect, useRef, useState } from "react";
 import Navbar from "../components/Navbar";
 import Connectors from "../components/Connectors";
 import { Box, Container, Paper, Typography } from "@mui/material";
 import Typed from "typed.js";
 import Projects from "./Projects";
+import Loader from "../components/Loader/Loader";
 // import Experience from "./Experience";
 const Experience = lazy(() => import("./Experience"));
 
@@ -32,7 +33,8 @@ function Home() {
     };
   }, []);
   return (
-    <Paper sx={{ backgroundColor: "black" }}>
+    <Container sx={{backgroundColor:'black',position:'absolute'}} maxWidth={'l'}>
+      {/* {loading && <Loader />} */}
       <Navbar
         scrollToHome={() => scrollToComponent(homeRef)}
         scrollToAbout={() => scrollToComponent(aboutRef)}
@@ -42,12 +44,12 @@ function Home() {
       <Paper
         ref={homeRef}
         sx={{
-          height: "250vh",
+          // height: "250vh",
           backgroundColor: "black",
           padding: "2% 0 0",
         }}
       >
-        <Paper sx={{ height: "90vh", backgroundColor: "black" }}>
+        <Paper sx={{backgroundColor: "black" }}>
           <Container maxWidth="xl">
             <Paper
               sx={{
@@ -56,7 +58,7 @@ function Home() {
                 backgroundColor: "rgba(0, 0, 0, .4)",
                 zIndex: 1,
                 height: "85vh",
-                width: { xs: "85vw", sm: "75vw" },
+                // width: { xs: "85vw", sm: "75vw" },
                 display: "flex",
                 flexDirection: "column",
                 justifyContent: "center",
@@ -77,7 +79,7 @@ function Home() {
                 <Typography
                   color={"snow"}
                   variant="h5"
-                  sx={{ width: { sm: "80%" ,xs:'100%'} }}
+                  sx={{ width: { sm: "80%", xs: "100%" } }}
                 >
                   Hi, I'm Ashish, Experienced software developer with over 2
                   years of expertise in designing, developing, and maintaining
@@ -120,7 +122,7 @@ function Home() {
           </Container>
         </Paper>
       </Paper>
-    </Paper>
+    </Container>
   );
 }
 
