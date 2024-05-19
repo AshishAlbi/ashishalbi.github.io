@@ -4,9 +4,9 @@ import React from "react";
 function Experience() {
   return (
     <>
-    <Typography variant="h3" color={'white'}>Work Experience</Typography>
+    <Typography variant="h3">Work Experience</Typography>
     <Stack direction={"column"}>
-      <Box sx={{backgroundColor:'black',color:'white'}}>
+      <Box >
         <Typography variant="h5">Company</Typography>
         <Typography variant="h6">
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corrupti,

@@ -32,7 +32,7 @@ const Connectors = () => {
       }}
       camera={{ fov: 40, position: [0, 0, 12] }}
     >
-      <color attach="background" args={["black"]} />
+      <color attach="background" args={["white"]} />
       <ambientLight intensity={1} />
       <spotLight
         position={[10, 10, 10]}

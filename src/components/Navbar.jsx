@@ -1,6 +1,6 @@
 import { Box, IconButton, Menu, MenuItem, Typography } from "@mui/material";
+import Hamburger from "hamburger-react";
 import React, { useState } from "react";
-import { BurgerClose } from "react-burger-icons";
 
 function Navbar({
   scrollToHome,
@@ -18,7 +18,6 @@ function Navbar({
   };
   return (
     <Box
-      color={"whitesmoke"}
       sx={{
         width: "100%",
         backgroundColor: "transparent",
@@ -31,15 +30,14 @@ function Navbar({
       }}
       padding={1}
     >
-      <Typography variant="h3" fontFamily={"serif"}>
-        Text
+      <Typography variant="h4" fontFamily={"cursive"}>
+        ashish.
       </Typography>
       <Box
         sx={{
           display: { sm: "flex", xs: "none" },
           justifyContent: "flex-end",
           flex: 1,
-          color: "white",
         }}
       >
         <MenuItem label="Home" onClick={scrollToHome}>
@@ -63,8 +61,8 @@ function Navbar({
           flex: 1,
         }}
       >
-        <IconButton sx={{ color: "white" }} onClick={handleClick}>
-          <BurgerClose isClosed={open} />
+        <IconButton  onClick={handleClick}>
+          <Hamburger toggled={open} color="#000000"/>
         </IconButton>
         <Menu anchorEl={anchorEl} open={open} onClose={handleClose}>
           <MenuItem onClick={scrollToHome}>Home</MenuItem>

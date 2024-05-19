@@ -29,7 +29,7 @@ function Projects() {
     <div
       ref={containerRef}
       style={{ overflowX: "hidden" }}>
-      <Typography variant="h3" color={"white"}>
+      <Typography variant="h3">
         Projects
       </Typography>
       <div

@@ -33,7 +33,7 @@ function Home() {
     };
   }, []);
   return (
-    <Container sx={{backgroundColor:'black',position:'absolute'}} maxWidth={'l'}>
+    <Container sx={{position:'absolute'}} maxWidth={'l'}>
       {/* {loading && <Loader />} */}
       <Navbar
         scrollToHome={() => scrollToComponent(homeRef)}
@@ -45,17 +45,16 @@ function Home() {
         ref={homeRef}
         sx={{
           // height: "250vh",
-          backgroundColor: "black",
           padding: "2% 0 0",
         }}
       >
-        <Paper sx={{backgroundColor: "black" }}>
+        <Paper>
           <Container maxWidth="xl">
             <Paper
               sx={{
                 padding: "25px",
                 position: "absolute",
-                backgroundColor: "rgba(0, 0, 0, .4)",
+                backgroundColor: "rgba(0, 0, 0, 0)",
                 zIndex: 1,
                 height: "85vh",
                 // width: { xs: "85vw", sm: "75vw" },
@@ -70,14 +69,12 @@ function Home() {
                 <span
                   ref={typeRef}
                   style={{
-                    color: "white",
                     fontWeight: "bolder",
                     fontFamily: "sans-serif",
                     fontSize: 25,
                   }}
                 />
                 <Typography
-                  color={"snow"}
                   variant="h5"
                   sx={{ width: { sm: "80%", xs: "100%" } }}
                 >
@@ -94,25 +91,21 @@ function Home() {
             </Paper>
             <Connectors />
           </Container>
-          <Container sx={{ backgroundColor: "black" }} maxWidth="xl">
+          <Container  maxWidth="xl">
             <Paper
               ref={experienceRef}
-              sx={{ backgroundColor: "black", padding: "5%" }}
+              sx={{  padding: "5%" }}
             >
               <Experience />
             </Paper>
             <Paper
               ref={projectRef}
-              sx={{ backgroundColor: "black", padding: "5%" }}
+              sx={{ padding: "5%" }}
             >
               <Projects />
             </Paper>
             <Paper
               ref={aboutRef}
-              sx={{
-                backgroundColor: "black",
-                color: "white",
-              }}
             >
               Lorem ipsum dolor sit amet consectetur adipisicing elit.
               Accusantium esse cumque expedita cum perferendis maiores
