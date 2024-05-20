@@ -31,7 +31,7 @@ function Navbar({
       padding={1}
     >
       <Typography variant="h4" fontFamily={"cursive"}>
-        ashish.
+        Ashish.
       </Typography>
       <Box
         sx={{

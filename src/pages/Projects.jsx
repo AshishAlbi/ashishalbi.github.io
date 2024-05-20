@@ -20,7 +20,7 @@ function Projects() {
         pin: true,
         scrub: true,
         snap: 1 / (sections.length - 1),
-        end: "+=" + containerRef.current.offsetWidth,
+        end: "+=" + 1500,
       },
     });
   });
@@ -28,7 +28,7 @@ function Projects() {
   return (
     <div
       ref={containerRef}
-      style={{ overflowX: "hidden" }}>
+      style={{ overflowX: "hidden" ,width:'100%',height:'100vh'}}>
       <Typography variant="h3">
         Projects
       </Typography>
@@ -38,7 +38,7 @@ function Projects() {
           display: "flex",
           flexWrap: "nowrap",
           width: "600%",
-          gap: "1px",
+          // gap: "1px",
           overflowX: "hidden",
         }}>
         <Cards projectName={"NFT Marketplace"} />
