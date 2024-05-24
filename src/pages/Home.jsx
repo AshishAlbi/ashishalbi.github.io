@@ -33,7 +33,7 @@ function Home() {
     };
   }, []);
   return (
-    <Container sx={{position:'absolute'}} maxWidth={'l'}>
+    <Container disableGutters sx={{position:'absolute'}} maxWidth={'l'}>
       {/* {loading && <Loader />} */}
       <Navbar
         scrollToHome={() => scrollToComponent(homeRef)}

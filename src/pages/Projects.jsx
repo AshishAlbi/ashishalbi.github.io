@@ -20,7 +20,7 @@ function Projects() {
         pin: true,
         scrub: true,
         snap: 1 / (sections.length - 1),
-        end: "+=" + 1500,
+        end: "+=" + 3500,
       },
     });
   });
@@ -28,7 +28,7 @@ function Projects() {
   return (
     <div
       ref={containerRef}
-      style={{ overflowX: "hidden" ,width:'100%',height:'100vh'}}>
+      style={{ overflowX: "hidden" ,width:'100%',height:'90vh',paddingTop:'10vh'}}>
       <Typography variant="h3">
         Projects
       </Typography>

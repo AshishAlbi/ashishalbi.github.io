@@ -1,42 +1,54 @@
 import React, { useRef } from "react";
+import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
-import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
-import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
+import { Button } from "@mui/material";
 
 function Cards({ projectName }) {
   const cardRef = useRef();
 
   return (
     <Card
-      ref={cardRef}
       sx={{
-        width: "100%",
-        height: "80vh",
-        background:
-          "linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(71,76,77,1) 75%)",
-        color: "white",
-      }}>
+        display: "flex",
+        width: { xs: "77vw", sm: "90vw" },
+        backgroundColor: "lightgrey",
+        flexDirection: { xs: "column", sm: "row" },
+        height: "70vh",
+      }}
+    >
       <CardMedia
-        sx={{ height: 140, objectFit: "contain" }}
-        image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ97H9EKumm61GQCKNxBAhzQrPL7k9QlOGxrw&usqp=CAU"
-        title="green iguana"
+        component="img"
+        sx={{
+          width: { xs: "100vw", sm: "30vw" },
+          height: { xs: "30vh", sm: "70vh" },
+        }}
+        image="https://img.freepik.com/free-photo/painting-mountain-lake-with-mountain-background_188544-9126.jpg?size=626&ext=jpg"
+        alt="Live from space album cover"
       />
-      <CardContent>
-        <Typography gutterBottom variant="h5" component="div">
-          {projectName}
-        </Typography>
-        <Typography variant="body2">
-          Lizards are a widespread group of squamate reptiles, with over 6,000
-          species, ranging across all continents except Antarctica
-        </Typography>
-      </CardContent>
-      <CardActions>
-        <Button size="small">Share</Button>
-        <Button size="small">Learn More</Button>
-      </CardActions>
+      <Box sx={{ display: "flex", flexDirection: "column", width: "100%" }}>
+        <CardContent sx={{ flex: "1 0 auto" }}>
+          <Typography component="div" variant="h5">
+            {projectName}
+          </Typography>
+          <Typography
+            variant="subtitle1"
+            color="text.secondary"
+            component="div"
+            width={{xs:'70vw',sm:'35vw'}}
+            height={200}
+          >
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo, totam
+            officiis! Pariatur eius ipsa dicta veniam repudiandae. Accusamus,
+            qui nesciunt dolores inventore cum excepturi omnis quos, eius
+            explicabo animi delectus.
+          </Typography>
+          <Button variant="contained">check</Button>
+        </CardContent>
+        {/* <Box sx={{ display: "flex", alignItems: "center", pl: 1, pb: 1 }}></Box> */}
+      </Box>
     </Card>
   );
 }

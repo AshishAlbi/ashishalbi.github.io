@@ -1,6 +1,10 @@
 import { Box, IconButton, Menu, MenuItem, Typography } from "@mui/material";
+import { useTheme } from "@mui/material/styles";
 import Hamburger from "hamburger-react";
 import React, { useState } from "react";
+import LightModeIcon from "@mui/icons-material/LightMode";
+import DarkModeIcon from '@mui/icons-material/DarkMode';
+import { useColorMode } from "./ColormodeContext";
 
 function Navbar({
   scrollToHome,
@@ -9,10 +13,12 @@ function Navbar({
   scrollToExperience,
 }) {
   const [anchorEl, setAnchorEl] = useState(null);
+  const theme = useTheme();
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
+  const colorMode = useColorMode();
   const handleClose = () => {
     setAnchorEl(null);
   };
@@ -20,39 +26,88 @@ function Navbar({
     <Box
       sx={{
         width: "100%",
-        backgroundColor: "transparent",
-        backdropFilter: "blur(8px)",
+        backgroundColor: theme.palette.mode === 'light'?'white':'black',
         display: "flex",
-        position: "relative",
+        position: "sticky",
         top: "0",
         zIndex: "2",
         borderBottom: "1px solid white",
       }}
-      padding={1}
     >
-      <Typography variant="h4" fontFamily={"cursive"}>
+      <Typography variant="h4" sx={{fontFamily:'dancingScript',marginLeft:'1em',marginTop:'.5em'}}>
         Ashish.
       </Typography>
       <Box
         sx={{
           display: { sm: "flex", xs: "none" },
           justifyContent: "flex-end",
-          flex: 1,
+          flex: 2,
         }}
       >
-        <MenuItem label="Home" onClick={scrollToHome}>
+        <MenuItem
+          label="Home"
+          onClick={scrollToHome}
+          sx={{
+            "&:hover": {
+              color: "lightblue",
+              borderBottom: " 1px solid lightblue",
+              backgroundColor: "transparent",
+            },
+          }}
+        >
           Home
         </MenuItem>
-        <MenuItem label="Experience" onClick={scrollToExperience}>
+        <MenuItem
+          label="Experience"
+          onClick={scrollToExperience}
+          sx={{
+            "&:hover": {
+              color: "lightblue",
+              borderBottom: " 1px solid lightblue",
+              backgroundColor: "transparent",
+            },
+          }}
+        >
           Experience
         </MenuItem>
-        <MenuItem label="Projects" onClick={scrollToProject}>
+        <MenuItem
+          label="Projects"
+          onClick={scrollToProject}
+          sx={{
+            "&:hover": {
+              color: "lightblue",
+              borderBottom: " 1px solid lightblue",
+              backgroundColor: "transparent",
+            },
+          }}
+        >
           Projects
         </MenuItem>
-        <MenuItem label="About" onClick={scrollToAbout}>
+        <MenuItem
+          label="About"
+          onClick={scrollToAbout}
+          sx={{
+            "&:hover": {
+              color: "lightblue",
+              borderBottom: " 1px solid lightblue",
+              backgroundColor: "transparent",
+            },
+          }}
+        >
           About
         </MenuItem>
-        <MenuItem label="Contact">Contact</MenuItem>
+        <MenuItem
+          label="Contact"
+          sx={{
+            "&:hover": {
+              color: "lightblue",
+              borderBottom: " 1px solid lightblue",
+              backgroundColor: "transparent",
+            },
+          }}
+        >
+          Contact
+        </MenuItem>
       </Box>
       <Box
         sx={{
@@ -61,8 +116,8 @@ function Navbar({
           flex: 1,
         }}
       >
-        <IconButton  onClick={handleClick}>
-          <Hamburger toggled={open} color="#000000"/>
+        <IconButton onClick={handleClick}>
+          <Hamburger toggled={open} color={theme.palette.mode ==='light'?'black':'white'} />
         </IconButton>
         <Menu anchorEl={anchorEl} open={open} onClose={handleClose}>
           <MenuItem onClick={scrollToHome}>Home</MenuItem>
@@ -72,6 +127,13 @@ function Navbar({
           <MenuItem>Contact</MenuItem>
         </Menu>
       </Box>
+      <IconButton onClick={colorMode.toggleColorMode} sx={{marginRight:'1em'}} color="inherit">
+        {theme.palette.mode === "dark" ? (
+          <LightModeIcon />
+        ) : (
+          <DarkModeIcon />
+        )}
+      </IconButton>
     </Box>
   );
 }

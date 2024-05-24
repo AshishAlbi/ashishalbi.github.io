@@ -1,5 +1,6 @@
 import { useRef, useMemo, memo } from "react";
 import * as THREE from "three";
+import { useTheme } from "@mui/material/styles";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Environment, Lightformer } from "@react-three/drei";
 import {
@@ -20,6 +21,7 @@ const shuffle = (number) => {
 };
 
 const Connectors = () => {
+  const theme = useTheme();
   const number = isMobileDevice() ? 5 : 15;
   const connectors = useMemo(() => shuffle(number), [number]);
   return (
@@ -32,7 +34,10 @@ const Connectors = () => {
       }}
       camera={{ fov: 40, position: [0, 0, 12] }}
     >
-      <color attach="background" args={["white"]} />
+      <color
+        attach="background"
+        args={[theme.palette.mode === "light" ? "white" : "black"]}
+      />
       <ambientLight intensity={1} />
       <spotLight
         position={[10, 10, 10]}

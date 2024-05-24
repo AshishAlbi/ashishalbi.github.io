@@ -1,12 +1,16 @@
-
-import './App.css'
-import Home from './pages/Home'
+import { Paper } from "@mui/material";
+import "./App.css";
+import ColorProvider from "./components/ColormodeContext";
+import Home from "./pages/Home";
 
 function App() {
-
   return (
-    <Home/>
-  )
+    <ColorProvider>
+      <Paper sx={{width:'100vw'}}>
+        <Home />
+      </Paper>
+    </ColorProvider>
+  );
 }
 
-export default App
+export default App;
