@@ -26,12 +26,13 @@ function Navbar({
     <Box
       sx={{
         width: "100%",
-        backgroundColor: theme.palette.mode === 'light'?'white':'black',
+        backgroundColor: theme.palette.mode === 'light'?'white':'#1f1f1f',
         display: "flex",
         position: "sticky",
         top: "0",
         zIndex: "2",
-        borderBottom: "1px solid white",
+        borderBottom: "1px solid",
+        borderColor:theme.palette.mode === 'light'?'black':'white',
       }}
     >
       <Typography variant="h4" sx={{fontFamily:'dancingScript',marginLeft:'1em',marginTop:'.5em'}}>

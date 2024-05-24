@@ -4,6 +4,8 @@ import Cards from "../components/Cards";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
 import { useGSAP } from "@gsap/react";
+import CarStunt from '../assets/images/view-car-running-high-speed.jpg'
+import RainImage from '../assets/images/view-apocalyptic-dark-clouds.jpg'
 gsap.registerPlugin(ScrollTrigger);
 
 function Projects() {
@@ -44,8 +46,8 @@ function Projects() {
         <Cards projectName={"NFT Marketplace"} />
         <Cards projectName={"TaskWiz"} />
         <Cards projectName={"Machirepo"} />
-        <Cards projectName={"Stunt car simulation"} />
-        <Cards projectName={"Rain simulation"} />
+        <Cards projectName={"Stunt car simulation"} image={CarStunt} url={'https://ashishalbi.github.io/CarStunt/'}/>
+        <Cards projectName={"Rain simulation"} image={RainImage}/>
       </div>
     </div>
   );

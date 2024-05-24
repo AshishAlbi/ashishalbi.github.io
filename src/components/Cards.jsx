@@ -4,17 +4,18 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
-import { Button } from "@mui/material";
+import { Button, useTheme } from "@mui/material";
 
-function Cards({ projectName }) {
-  const cardRef = useRef();
+function Cards({ projectName, image, url, discription }) {
+  const theme = useTheme();
 
   return (
     <Card
       sx={{
         display: "flex",
-        width: { xs: "77vw", sm: "90vw" },
-        backgroundColor: "lightgrey",
+        width: { xs: "85vw", sm: "90vw" },
+        backgroundColor:
+          theme.palette.mode === "light" ? "lightgrey" : "#353535",
         flexDirection: { xs: "column", sm: "row" },
         height: "70vh",
       }}
@@ -25,8 +26,8 @@ function Cards({ projectName }) {
           width: { xs: "100vw", sm: "30vw" },
           height: { xs: "30vh", sm: "70vh" },
         }}
-        image="https://img.freepik.com/free-photo/painting-mountain-lake-with-mountain-background_188544-9126.jpg?size=626&ext=jpg"
-        alt="Live from space album cover"
+        image={image}
+        alt="loading..."
       />
       <Box sx={{ display: "flex", flexDirection: "column", width: "100%" }}>
         <CardContent sx={{ flex: "1 0 auto" }}>
@@ -37,7 +38,7 @@ function Cards({ projectName }) {
             variant="subtitle1"
             color="text.secondary"
             component="div"
-            width={{xs:'70vw',sm:'35vw'}}
+            width={{ xs: "70vw", sm: "35vw" }}
             height={200}
           >
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo, totam
@@ -45,9 +46,10 @@ function Cards({ projectName }) {
             qui nesciunt dolores inventore cum excepturi omnis quos, eius
             explicabo animi delectus.
           </Typography>
-          <Button variant="contained">check</Button>
+         {url && <a href={url} target="blank">
+            <Button variant="contained">check</Button>
+          </a>}
         </CardContent>
-        {/* <Box sx={{ display: "flex", alignItems: "center", pl: 1, pb: 1 }}></Box> */}
       </Box>
     </Card>
   );
