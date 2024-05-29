@@ -5,7 +5,7 @@ import { Box, Container, Paper, Typography } from "@mui/material";
 import Typed from "typed.js";
 import Projects from "./Projects";
 import Loader from "../components/Loader/Loader";
-// import Experience from "./Experience";
+import DownloadResumeButton from "../components/Button/DownloadResumeButton";
 const Experience = lazy(() => import("./Experience"));
 
 function Home() {
@@ -33,7 +33,7 @@ function Home() {
     };
   }, []);
   return (
-    <Container disableGutters sx={{position:'absolute'}} maxWidth={'l'}>
+    <Container disableGutters sx={{ position: "absolute" }} maxWidth={"l"}>
       {/* {loading && <Loader />} */}
       <Navbar
         scrollToHome={() => scrollToComponent(homeRef)}
@@ -44,76 +44,80 @@ function Home() {
       <Paper
         ref={homeRef}
         sx={{
-          // height: "250vh",
           padding: "2% 0 0",
         }}
       >
-        <Paper>
-          <Container maxWidth="xl">
-            <Paper
-              sx={{
-                padding: "25px",
-                position: "absolute",
-                backgroundColor: "rgba(0, 0, 0, 0)",
-                zIndex: 1,
-                height: "85vh",
-                // width: { xs: "85vw", sm: "75vw" },
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "center",
-                // alignItems: "center",
-                pointerEvents: "none",
-              }}
-            >
-              <Box>
-                <span
-                  ref={typeRef}
-                  style={{
-                    fontWeight: "bolder",
-                    fontFamily: "sans-serif",
-                    fontSize: 25,
-                  }}
-                />
-                <Typography
-                  variant="h5"
-                  sx={{ width: { sm: "80%", xs: "100%" } }}
-                >
-                  Hi, I'm Ashish, Experienced software developer with over 2
-                  years of expertise in designing, developing, and maintaining
-                  software systems, with a particular emphasis on web design.
-                  Proficient in various platforms, languages, and frameworks,
-                  including React, Django and Express JS. Demonstrates effective
-                  self-management in independent projects and excels as a
-                  collaborative team member. Proven track record in delivering
-                  high-quality solutions within dynamic work environments.
-                </Typography>
-              </Box>
-            </Paper>
+        <Container
+          maxWidth="xl"
+          sx={{
+            display: "flex",
+            flexDirection: { xs: "column-reverse", sm: "row" },
+            gap: { xs: "10px" },
+            width: "100vw",
+            height: "90vh",
+          }}
+        >
+          <Box
+            sx={{
+              width: { xs: "80vw", sm: "40vw" },
+              height: { xs: "35vh" },
+              position: "relative",
+              top: { sm: "40vh" },
+              left: { sm: "2vw", xs: "10vw" },
+              display:"flex",
+              flexDirection:'column',
+              gap:'10px',
+              alignItems:'flex-start'
+            }}
+          >
+            <Typography variant="h5">Hello, I'm, <span style={{fontWeight:'bolder',fontFamily:'monospace'}}>Ashish</span></Typography>
+
+            <div>
+              <span
+                ref={typeRef}
+                style={{
+                  fontWeight: "bolder",
+                  fontFamily: "sans-serif",
+                  fontSize: 25,
+                  height: "5vh",
+                  width: "90vw",
+                }}
+              />
+            </div>
+            <Typography variant="h5">
+              with 2 years of experience dedicated to crafting innovative
+              solutions and seamless digital experiences.
+            </Typography>
+            <DownloadResumeButton />
+          </Box>
+          <Box
+            sx={{
+              width: { xs: "90vw", sm: "60vw" },
+              height: { xs: "50vh", sm: "90vh" },
+              flex: 1,
+            }}
+          >
             <Connectors />
-          </Container>
-          <Container  maxWidth="xl">
-            <Paper
-              ref={experienceRef}
-              sx={{  padding: "5%" }}
-            >
-              <Experience />
-            </Paper>
-            <Paper
-              ref={projectRef}
-              sx={{ padding: "5%" }}
-            >
-              <Projects />
-            </Paper>
-            <Paper
-              ref={aboutRef}
-            >
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Accusantium esse cumque expedita cum perferendis maiores
-              voluptatum consectetur exercitationem, sit ut repellendus
-              temporibus, tenetur nam explicabo eius et, illo itaque voluptatem!
-            </Paper>
-          </Container>
-        </Paper>
+          </Box>
+        </Container>
+        <Container maxWidth="xl">
+          <Paper ref={experienceRef} sx={{ padding: "5%" }}>
+            <Experience />
+          </Paper>
+          <Paper ref={projectRef} sx={{ padding: "5%" }}>
+            <Projects />
+          </Paper>
+          <Paper ref={aboutRef}>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium
+            esse cumque expedita cum perferendis maiores voluptatum consectetur
+            exercitationem, sit ut repellendus temporibus, tenetur nam explicabo
+            eius et, illo itaque voluptatem! Lorem ipsum dolor sit amet
+            consectetur adipisicing elit. Accusantium esse cumque expedita cum
+            perferendis maiores voluptatum consectetur exercitationem, sit ut
+            repellendus temporibus, tenetur nam explicabo eius et, illo itaque
+            voluptatem!
+          </Paper>
+        </Container>
       </Paper>
     </Container>
   );

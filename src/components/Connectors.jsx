@@ -22,14 +22,14 @@ const shuffle = (number) => {
 
 const Connectors = () => {
   const theme = useTheme();
-  const number = isMobileDevice() ? 5 : 15;
+  const number = isMobileDevice() ? 6 : 15;
   const connectors = useMemo(() => shuffle(number), [number]);
   return (
     <Canvas
       gl={{ antialias: false }}
       style={{
-        width: { xs: "77vw", sm: "85vw" },
-        height: "90vh",
+        width: '100%',
+        height: "100%",
         borderRadius: "30px",
       }}
       camera={{ fov: 40, position: [0, 0, 12] }}

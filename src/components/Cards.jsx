@@ -17,7 +17,7 @@ function Cards({ projectName, image, url, discription }) {
         backgroundColor:
           theme.palette.mode === "light" ? "lightgrey" : "#353535",
         flexDirection: { xs: "column", sm: "row" },
-        height: "70vh",
+        height: {xs:'80vh',sm:"70vh"},
       }}
     >
       <CardMedia

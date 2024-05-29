@@ -5,6 +5,7 @@ import React, { useState } from "react";
 import LightModeIcon from "@mui/icons-material/LightMode";
 import DarkModeIcon from '@mui/icons-material/DarkMode';
 import { useColorMode } from "./ColormodeContext";
+import ColormodeToggleSwitch from "./ColorModeToggleSwitch/ColormodeToggleSwitch";
 
 function Navbar({
   scrollToHome,
@@ -128,12 +129,8 @@ function Navbar({
           <MenuItem>Contact</MenuItem>
         </Menu>
       </Box>
-      <IconButton onClick={colorMode.toggleColorMode} sx={{marginRight:'1em'}} color="inherit">
-        {theme.palette.mode === "dark" ? (
-          <LightModeIcon />
-        ) : (
-          <DarkModeIcon />
-        )}
+      <IconButton sx={{pt:'1vh',marginRight:'1em'}}>
+      <ColormodeToggleSwitch/>
       </IconButton>
     </Box>
   );
