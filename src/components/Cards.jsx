@@ -17,14 +17,14 @@ function Cards({ projectName, image, url, discription }) {
         backgroundColor:
           theme.palette.mode === "light" ? "lightgrey" : "#353535",
         flexDirection: { xs: "column", sm: "row" },
-        height: {xs:'80vh',sm:"70vh"},
+        height: {xs:'80vh',sm:"75vh"},
       }}
     >
       <CardMedia
         component="img"
         sx={{
           width: { xs: "100vw", sm: "30vw" },
-          height: { xs: "30vh", sm: "70vh" },
+          height: { xs: "30vh", sm: "75vh" },
         }}
         image={image}
         alt="loading..."
