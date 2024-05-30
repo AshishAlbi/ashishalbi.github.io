@@ -6,6 +6,7 @@ import Typed from "typed.js";
 import Projects from "./Projects";
 import Loader from "../components/Loader/Loader";
 import DownloadResumeButton from "../components/Button/DownloadResumeButton";
+import AboutMe from "./AboutMe";
 const Experience = lazy(() => import("./Experience"));
 
 function Home() {
@@ -59,18 +60,24 @@ function Home() {
         >
           <Box
             sx={{
-              width: { xs: "80vw", sm: "40vw" },
+              width: { xs: "80vw", sm: "35vw" },
               height: { xs: "35vh" },
               position: "relative",
               top: { sm: "40vh" },
               left: { sm: "2vw", xs: "10vw" },
-              display:"flex",
-              flexDirection:'column',
-              gap:'10px',
-              alignItems:'flex-start'
+              display: "flex",
+              flexDirection: "column",
+              gap: "10px",
+              alignItems: "flex-start",
             }}
           >
-            <Typography variant="h5">Hello, I'm, <span style={{fontWeight:'bolder',fontFamily:'monospace'}}>Ashish</span></Typography>
+            <Typography variant="h5">
+              Hello, I'm{" "}
+              <span style={{ fontWeight: "bolder", fontFamily: "monospace" }}>
+                Ashish
+              </span>
+              ,
+            </Typography>
 
             <div>
               <span
@@ -107,15 +114,8 @@ function Home() {
           <Paper ref={projectRef} sx={{ padding: "5%" }}>
             <Projects />
           </Paper>
-          <Paper ref={aboutRef}>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium
-            esse cumque expedita cum perferendis maiores voluptatum consectetur
-            exercitationem, sit ut repellendus temporibus, tenetur nam explicabo
-            eius et, illo itaque voluptatem! Lorem ipsum dolor sit amet
-            consectetur adipisicing elit. Accusantium esse cumque expedita cum
-            perferendis maiores voluptatum consectetur exercitationem, sit ut
-            repellendus temporibus, tenetur nam explicabo eius et, illo itaque
-            voluptatem!
+          <Paper ref={aboutRef} sx={{padding:"5%"}}>
+            <AboutMe/>
           </Paper>
         </Container>
       </Paper>

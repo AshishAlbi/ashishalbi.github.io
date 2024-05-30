@@ -32,7 +32,7 @@ const Connectors = () => {
         height: "100%",
         borderRadius: "30px",
       }}
-      camera={{ fov: 40, position: [0, 0, 12] }}
+      camera={{ fov: 40, position: [0, 0, 15] }}
     >
       <color
         attach="background"
