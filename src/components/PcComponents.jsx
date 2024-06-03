@@ -17,7 +17,7 @@ function PcComponents() {
       gl={{ antialias: true }}>
       <color
         attach="background"
-        args={[theme.palette.mode == "light" ? "white" : "#1f1f1f"]}
+        args={[theme.palette.mode == "light" ? "white" : "#000000"]}
       />
       <ambientLight intensity={0.5} />
       <OrbitControls autoRotate enableZoom={false} enablePan={false} />

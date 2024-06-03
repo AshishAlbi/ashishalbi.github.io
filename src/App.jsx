@@ -6,7 +6,7 @@ import Home from "./pages/Home";
 function App() {
   return (
     <ColorProvider>
-      <Paper sx={{width:'100vw'}}>
+      <Paper elevation={0} sx={{width:'100vw'}}>
         <Home />
       </Paper>
     </ColorProvider>

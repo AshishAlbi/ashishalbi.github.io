@@ -34,7 +34,7 @@ function Home() {
     };
   }, []);
   return (
-    <Container disableGutters sx={{ position: "absolute" }} maxWidth={"l"}>
+    <Container disableGutters sx={{ position: "absolute" }} maxWidth={"xl"}>
       {/* {loading && <Loader />} */}
       <Navbar
         scrollToHome={() => scrollToComponent(homeRef)}
@@ -43,9 +43,11 @@ function Home() {
         scrollToExperience={() => scrollToComponent(experienceRef)}
       />
       <Paper
+      elevation={0}
         ref={homeRef}
         sx={{
           padding: "2% 0 0",
+          width:'100vw',
         }}
       >
         <Container
@@ -108,13 +110,13 @@ function Home() {
           </Box>
         </Container>
         <Container maxWidth="xl">
-          <Paper ref={experienceRef} sx={{ padding: "5%" }}>
+          <Paper elevation={0} ref={experienceRef} sx={{ padding: "5%" }}>
             <Experience />
           </Paper>
-          <Paper ref={projectRef} sx={{ padding: "5%" }}>
+          <Paper elevation={0} ref={projectRef} sx={{ padding: "5%" }}>
             <Projects />
           </Paper>
-          <Paper ref={aboutRef} sx={{padding:"5%"}}>
+          <Paper ref={aboutRef} elevation={0} sx={{padding:"5%"}}>
             <AboutMe/>
           </Paper>
         </Container>
