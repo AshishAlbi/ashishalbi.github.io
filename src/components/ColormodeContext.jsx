@@ -13,18 +13,14 @@ function ColorProvider({ children }) {
         setColorMode((prevMode) => (prevMode === "light" ? "dark" : "light"));
       },
     }),
-    [],
+    []
   );
-  const theme = useMemo(
-    () =>
-      createTheme({
-        palette: { mode: colorMode },
-      }),
-    [colorMode],
-  );
+  const darkTheme = createTheme({ palette: { mode: "dark",background:{default:'black',paper:'black'} } });
+  const lightTheme = createTheme({ palette: { mode: "light" } });
+
   return (
     <ColorModeContext.Provider value={color}>
-      <ThemeProvider theme={theme}>{children}</ThemeProvider>
+      <ThemeProvider theme={colorMode=="light"?lightTheme:darkTheme}>{children}</ThemeProvider>
     </ColorModeContext.Provider>
   );
 }

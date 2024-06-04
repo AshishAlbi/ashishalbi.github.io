@@ -36,7 +36,7 @@ const Connectors = () => {
     >
       <color
         attach="background"
-        args={[theme.palette.mode === "light" ? "white" : "#1f1f1f"]}
+        args={[theme.palette.mode === "light" ? "white" : "black"]}
       />
       <ambientLight intensity={1} />
       <spotLight
