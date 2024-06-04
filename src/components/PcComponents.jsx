@@ -6,7 +6,7 @@ import React, { useEffect, useRef } from "react";
 function PcComponents() {
   const theme = useTheme();
   const groundRef = useRef();
-  const pc = useGLTF("src/assets/models/gaming_pc_setup.glb");
+  const pc = useGLTF("/assets/models/gaming_pc_setup.glb");
   useEffect(() => {
     pc.scene.position.y = -8;
   }, [pc]);

@@ -4,8 +4,8 @@ import Cards from "../components/Cards";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
 import { useGSAP } from "@gsap/react";
-import CarStunt from "../assets/images/view-car-running-high-speed.jpg";
-import RainImage from "../assets/images/view-apocalyptic-dark-clouds.jpg";
+import CarStunt from "../../assets/images/view-car-running-high-speed.jpg/";
+import RainImage from "../../assets/images/view-apocalyptic-dark-clouds.jpg";
 gsap.registerPlugin(ScrollTrigger);
 
 function Projects() {
