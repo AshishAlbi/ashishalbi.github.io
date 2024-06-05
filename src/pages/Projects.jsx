@@ -69,6 +69,7 @@ function Projects() {
           discription={projectDiscription.taskWiz}
         />
         <Cards
+        image={'/assets/images/9019863.jpg'}
           projectName={"Machirepo"}
           discription={projectDiscription.machirepo}
         />

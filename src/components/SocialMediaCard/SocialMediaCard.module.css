@@ -3,6 +3,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 2vh;
 }
 
 .example_2 .icon_content {
@@ -11,8 +12,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 50px;
-  height: 50px;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
   color: #4d4d4d;
   background-color: #fff;
@@ -24,8 +25,8 @@
 .example_2 .icon_content svg {
   position: relative;
   z-index: 1;
-  width: 30px;
-  height: 30px;
+  width: 20px;
+  height: 20px;
 }
 .example_2 .icon_content:hover {
   color: white;
