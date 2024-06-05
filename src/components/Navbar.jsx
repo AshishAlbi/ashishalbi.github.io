@@ -64,7 +64,7 @@ function Navbar({
                 right: 0,
                 bottom: 0,
                 height: "2px",
-                background: "linear-gradient(90deg, rgba(0,0,0,0) 0%, rgba(10,217,245,1) 50%, rgba(0,0,0,0) 100%);"
+                 background: "linear-gradient(90deg, rgba(0,0,0,0) 15%, rgba(10,217,245,.5) 50%, rgba(0,0,0,0) 85%);"
               },
             },
           }}>
@@ -84,7 +84,7 @@ function Navbar({
                 right: 0,
                 bottom: 0,
                 height: "2px",
-                background: "linear-gradient(90deg, rgba(0,0,0,0) 0%, rgba(10,217,245,1) 50%, rgba(0,0,0,0) 100%);"
+                 background: "linear-gradient(90deg, rgba(0,0,0,0) 15%, rgba(10,217,245,.5) 50%, rgba(0,0,0,0) 85%);"
               },
             },
           }}>
@@ -104,7 +104,7 @@ function Navbar({
                 right: 0,
                 bottom: 0,
                 height: "2px",
-                background: "linear-gradient(90deg, rgba(0,0,0,0) 0%, rgba(10,217,245,1) 50%, rgba(0,0,0,0) 100%);"
+                 background: "linear-gradient(90deg, rgba(0,0,0,0) 15%, rgba(10,217,245,.5) 50%, rgba(0,0,0,0) 85%);"
               },
             },
           }}>
@@ -124,7 +124,7 @@ function Navbar({
                 right: 0,
                 bottom: 0,
                 height: "2px",
-                background: "linear-gradient(90deg, rgba(0,0,0,0) 0%, rgba(10,217,245,1) 50%, rgba(0,0,0,0) 100%);"
+                background: "linear-gradient(90deg, rgba(0,0,0,0) 15%, rgba(10,217,245,.5) 50%, rgba(0,0,0,0) 85%);"
               },
             },
           }}>
@@ -150,9 +150,9 @@ function Navbar({
           <MenuItem onClick={scrollToAbout}>About</MenuItem>
         </Menu>
       </Box>
-      <IconButton sx={{ pt: "1vh", marginRight: "1em" }}>
+      <Box sx={{ pt: "1vh",pr:'1vw', marginRight: "1em" }}>
         <ColormodeToggleSwitch />
-      </IconButton>
+      </Box>
     </Box>
   );
 }

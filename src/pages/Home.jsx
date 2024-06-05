@@ -7,6 +7,7 @@ import Projects from "./Projects";
 import Loader from "../components/Loader/Loader";
 import DownloadResumeButton from "../components/Button/DownloadResumeButton";
 import AboutMe from "./AboutMe";
+import SocialMediaCard from "../components/SocialMediaCard/SocialMediaCard";
 const Experience = lazy(() => import("./Experience"));
 
 function Home() {
@@ -65,7 +66,7 @@ function Home() {
               width: { xs: "80vw", sm: "35vw" },
               height: { xs: "35vh" },
               position: "relative",
-              top: { sm: "40vh" },
+              top: { sm: "20vh" },
               left: { sm: "2vw", xs: "10vw" },
               display: "flex",
               flexDirection: "column",
@@ -97,6 +98,7 @@ function Home() {
               with 2 years of experience dedicated to crafting innovative
               solutions and seamless digital experiences.
             </Typography>
+            <SocialMediaCard/>
             <DownloadResumeButton />
           </Box>
           <Box
