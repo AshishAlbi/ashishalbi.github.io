@@ -63,6 +63,7 @@ function SocialMediaCard() {
       </a>
       <a
         target={"_blank"}
+        href='https://discordapp.com/users/760803454812946452'
         className={socialMediaCard.icon_content}
         data-social="discord"
         aria-label="discord">

@@ -1,4 +1,4 @@
-import React, { lazy, useEffect, useRef, useState } from "react";
+import React, { lazy, Suspense, useEffect, useRef, useState } from "react";
 import Navbar from "../components/Navbar";
 import Connectors from "../components/Connectors";
 import { Box, Container, Paper, Typography } from "@mui/material";
@@ -24,7 +24,7 @@ function Home() {
 
   useEffect(() => {
     const typed = new Typed(typeRef.current, {
-      strings: ["Software Engineer", "Fullstack Developer"],
+      strings: ["Fullstack Developer","React Developer","Node.js Developer"],
       typeSpeed: 90,
       backSpeed: 30,
       smartBackspace: false,
@@ -107,8 +107,9 @@ function Home() {
               height: { xs: "50vh", sm: "90vh" },
               flex: 1,
             }}
-          >
+          ><Suspense fallback={<Loader/>}>
             <Connectors />
+          </Suspense>
           </Box>
         </Container>
         <Container maxWidth="xl">
