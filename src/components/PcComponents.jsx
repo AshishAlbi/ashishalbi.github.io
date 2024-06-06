@@ -19,15 +19,11 @@ function PcComponents() {
         attach="background"
         args={[theme.palette.mode == "light" ? "white" : "#000000"]}
       />
-      <ambientLight intensity={0.5} />
+      <ambientLight intensity={0.6} />
       <OrbitControls autoRotate enableZoom={false} enablePan={false} />
-      <mesh position={[0, -10, 0]}>
-        <boxGeometry args={[5, 5, 0.1]}/>
-        <meshBasicMaterial color={"grey"} />
+      <mesh castShadow>
+        <primitive object={pc.scene}/>
       </mesh>
-      <group>
-        <primitive object={pc.scene} />
-      </group>
     </Canvas>
   );
 }

@@ -13,7 +13,6 @@ const Experience = lazy(() => import("./Experience"));
 function Home() {
   const homeRef = useRef(null);
   const aboutRef = useRef(null);
-  const experienceRef = useRef(null);
   const projectRef = useRef(null);
   const typeRef = useRef(null);
   const scrollToComponent = (componentRef) => {
@@ -36,12 +35,10 @@ function Home() {
   }, []);
   return (
     <Container disableGutters sx={{ position: "absolute" }} maxWidth={"xl"}>
-      {/* {loading && <Loader />} */}
       <Navbar
         scrollToHome={() => scrollToComponent(homeRef)}
         scrollToAbout={() => scrollToComponent(aboutRef)}
         scrollToProject={() => scrollToComponent(projectRef)}
-        scrollToExperience={() => scrollToComponent(experienceRef)}
       />
       <Paper
       elevation={0}
@@ -107,13 +104,13 @@ function Home() {
               height: { xs: "50vh", sm: "90vh" },
               flex: 1,
             }}
-          ><Suspense fallback={<Loader/>}>
+          >
             <Connectors />
-          </Suspense>
+          
           </Box>
         </Container>
         <Container maxWidth="xl">
-          <Paper elevation={0} ref={experienceRef} sx={{ padding: "5%" }}>
+          <Paper elevation={0} sx={{ padding: "5%" }}>
             <Experience />
           </Paper>
           <Paper elevation={0} ref={projectRef} sx={{ padding: "5%" }}>

@@ -40,12 +40,12 @@ function Cards({ projectName, image, url, discription }) {
             width={{ xs: "70vw", sm: "50vw" }}
             height={200}>
             {discription}
-          </Typography>
           {url && (
-            <a href={url} target="blank">
-              <Button variant="contained">check</Button>
+            <a href={url} target="blank" style={{textDecoration:'none'}}>
+              <Button sx={{display:'block'}} variant="contained">check</Button>
             </a>
           )}
+          </Typography>
         </CardContent>
       </Box>
     </Card>
