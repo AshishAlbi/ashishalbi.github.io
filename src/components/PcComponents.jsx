@@ -1,15 +1,12 @@
-import { useTheme } from "@mui/material";
-import { OrbitControls, useGLTF } from "@react-three/drei";
+import { useTheme } from "@mui/material/styles";
+import { Float, OrbitControls, useFBX, useGLTF } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import React, { useEffect, useRef } from "react";
 
 function PcComponents() {
   const theme = useTheme();
-  const groundRef = useRef();
-  const pc = useGLTF("/assets/models/gaming_pc_setup.glb");
-  useEffect(() => {
-    pc.scene.position.y = -8;
-  }, [pc]);
+  const pc = useGLTF("/assets/models/mac-draco.glb");
+
   return (
     <Canvas
       style={{ width: "100%", height: "100%" }}
@@ -19,11 +16,13 @@ function PcComponents() {
         attach="background"
         args={[theme.palette.mode == "light" ? "white" : "#000000"]}
       />
-      <ambientLight intensity={0.6} />
-      <OrbitControls autoRotate enableZoom={false} enablePan={false} />
-      <mesh castShadow>
-        <primitive object={pc.scene}/>
-      </mesh>
+      <ambientLight intensity={2} />
+      <directionalLight position={[0, 10, 45]} intensity={1} />
+      <Float floatIntensity={2} speed={2}>
+        <mesh castShadow scale={2}>
+          <primitive object={pc.scene} />
+        </mesh>
+      </Float>
     </Canvas>
   );
 }

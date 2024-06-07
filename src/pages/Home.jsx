@@ -23,7 +23,7 @@ function Home() {
 
   useEffect(() => {
     const typed = new Typed(typeRef.current, {
-      strings: ["Fullstack Developer","React Developer","Node.js Developer"],
+      strings: ["Fullstack Developer", "React Developer", "Node.js Developer"],
       typeSpeed: 90,
       backSpeed: 30,
       smartBackspace: false,
@@ -41,13 +41,15 @@ function Home() {
         scrollToProject={() => scrollToComponent(projectRef)}
       />
       <Paper
-      elevation={0}
+        elevation={0}
         ref={homeRef}
         sx={{
+          display:'flex',
+          flexDirection:'column',
+          gap:'5vh',
           padding: "2% 0 0",
-          width:'100vw',
-        }}
-      >
+          width: "100vw",
+        }}>
         <Container
           maxWidth="xl"
           sx={{
@@ -56,8 +58,7 @@ function Home() {
             gap: { xs: "10px" },
             width: "100vw",
             height: "90vh",
-          }}
-        >
+          }}>
           <Box
             sx={{
               width: { xs: "80vw", sm: "35vw" },
@@ -69,8 +70,7 @@ function Home() {
               flexDirection: "column",
               gap: "10px",
               alignItems: "flex-start",
-            }}
-          >
+            }}>
             <Typography variant="h5">
               Hello, I'm{" "}
               <span style={{ fontWeight: "bolder", fontFamily: "monospace" }}>
@@ -95,7 +95,7 @@ function Home() {
               with 2 years of experience dedicated to crafting innovative
               solutions and seamless digital experiences.
             </Typography>
-            <SocialMediaCard/>
+            <SocialMediaCard />
             <DownloadResumeButton />
           </Box>
           <Box
@@ -103,10 +103,8 @@ function Home() {
               width: { xs: "90vw", sm: "60vw" },
               height: { xs: "50vh", sm: "90vh" },
               flex: 1,
-            }}
-          >
+            }}>
             <Connectors />
-          
           </Box>
         </Container>
         <Container maxWidth="xl">
@@ -116,8 +114,8 @@ function Home() {
           <Paper elevation={0} ref={projectRef} sx={{ padding: "5%" }}>
             <Projects />
           </Paper>
-          <Paper ref={aboutRef} elevation={0} sx={{padding:"5%"}}>
-            <AboutMe/>
+          <Paper ref={aboutRef} elevation={0} sx={{ padding: "5%" }}>
+            <AboutMe />
           </Paper>
         </Container>
       </Paper>

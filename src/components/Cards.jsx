@@ -4,7 +4,8 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
-import { Button, useTheme } from "@mui/material";
+import { Button } from "@mui/material";
+import {useTheme } from "@mui/material/styles"
 
 function Cards({ projectName, image, url, discription }) {
   const theme = useTheme();

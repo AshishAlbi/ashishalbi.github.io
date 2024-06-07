@@ -1,9 +1,7 @@
 import React from "react";
-import ColormodeToggleStyle from "./ColormodeToggle.module.css";
-import LightModeIcon from "@mui/icons-material/LightMode";
 import { useColorMode } from "../ColormodeContext";
-import { IconButton, useTheme } from "@mui/material";
-import { color } from "@mui/system";
+import { IconButton } from "@mui/material";
+import {useTheme} from "@mui/material/styles"
 
 function ColormodeToggleSwitch() {
   const colorMode = useColorMode();

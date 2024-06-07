@@ -1,11 +1,9 @@
-import { Stack, Typography } from "@mui/material";
+import { Typography } from "@mui/material";
 import React, { useRef } from "react";
 import Cards from "../components/Cards";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
 import { useGSAP } from "@gsap/react";
-import taskRewardsImage from "../../public/assets/images/3965795.jpg";
-import RainImage from "../../public/assets/images/view-apocalyptic-dark-clouds.jpg";
 gsap.registerPlugin(ScrollTrigger);
 
 function Projects() {
@@ -24,7 +22,6 @@ function Projects() {
       "Developed an immersive web-based Realistic Rain simulation using HTML, CSS, JavaScript, and Three.js, focusing on creating dynamic 3D rain effects with optimized performance and responsive design",
   };
   useGSAP(() => {
-    console.log(containerRef.current.offsetWidth);
     let sections = gsap.utils.toArray(cardRef.current.children);
     gsap.to(sections, {
       xPercent: -100 * (sections.length - 1),
@@ -59,29 +56,31 @@ function Projects() {
           overflowX: "hidden",
         }}>
         <Cards
-          image={'/assets/images/rise-humanoids-with-advanced-headgear-generative-ai.jpg'}
+          image={
+            "/assets/images/rise-humanoids-with-advanced-headgear-generative-ai.jpg"
+          }
           projectName={"NFT Marketplace"}
           discription={projectDiscription.nftMarketplace}
         />
         <Cards
-          image={'/assets/images/3965795.jpg'}
+          image={"/assets/images/3965795.jpg"}
           projectName={"TaskWiz"}
           discription={projectDiscription.taskWiz}
         />
         <Cards
-        image={'/assets/images/9019863.jpg'}
+          image={"/assets/images/9019863.jpg"}
           projectName={"Machirepo"}
           discription={projectDiscription.machirepo}
         />
         <Cards
           projectName={"Stunt car simulation"}
-          image={'/assets/images/view-car-running-high-speed.jpg'}
+          image={"/assets/images/view-car-running-high-speed.jpg"}
           url={"https://ashishalbi.github.io/CarStunt/"}
           discription={projectDiscription.stundCarSimulation}
         />
         <Cards
           projectName={"Rain simulation"}
-          image={'/assets/images/view-apocalyptic-dark-clouds.jpg'}
+          image={"/assets/images/view-apocalyptic-dark-clouds.jpg"}
           url={"https://ashishalbi.github.io/Realistic_rain/"}
           discription={projectDiscription.rainSimulation}
         />
