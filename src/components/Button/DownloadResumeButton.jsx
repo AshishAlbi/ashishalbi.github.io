@@ -2,8 +2,24 @@ import React from "react";
 import buttonStyle from "./DownloadResume.module.css";
 
 function DownloadResumeButton() {
-  const downloadResume = () => {
-    console.log("downloaded.................!");
+  const downloadResume = async () => {
+    try {
+      const response = await fetch('/assets/ashishAlbiResume.pdf');
+      const blob = await response.blob();
+
+      const url = window.URL.createObjectURL(blob);
+
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = 'ashishAlbiResume.pdf';
+      document.body.appendChild(link);
+      link.click();
+
+      document.body.removeChild(link);
+      window.URL.revokeObjectURL(url);
+    } catch (error) {
+      console.error('Error downloading the PDF file:', error);
+    }
   };
 
   return (
