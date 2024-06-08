@@ -12,14 +12,13 @@ function Navbar({ scrollToHome, scrollToAbout, scrollToProject }) {
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
-  const colorMode = useColorMode();
   const handleClose = () => {
     setAnchorEl(null);
   };
   return (
     <Box
       sx={{
-        width: "100%",
+        width: "100vw",
         backgroundColor: theme.palette.mode === "light" ? "white" : "black",
         display: "flex",
         position: "sticky",

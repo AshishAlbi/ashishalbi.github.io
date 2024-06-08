@@ -11,7 +11,14 @@ function Experience() {
   useGSAP(() => {
     let logos = gsap.utils.toArray(logoRef.current.children);
     let tl = gsap.timeline({ repeat: -1 });
-    tl.fromTo(logos,{x:0},{x:-logoRef.current.offsetWidth,ease: 'linear', duration: 10})
+    tl.to(logos, {
+      x: -logoRef.current.offsetWidth,
+      ease: "none",
+      duration: 10,
+      onComplete: () => {
+        gsap.set(logos, { x: 0 });
+      },
+    });
   });
   return (
     <>
