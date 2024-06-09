@@ -8,6 +8,7 @@ import Loader from "../components/Loader/Loader";
 import DownloadResumeButton from "../components/Button/DownloadResumeButton";
 import AboutMe from "./AboutMe";
 import SocialMediaCard from "../components/SocialMediaCard/SocialMediaCard";
+import Footer from "../components/Footer";
 const Experience = lazy(() => import("./Experience"));
 
 function Home() {
@@ -120,6 +121,7 @@ function Home() {
           </Paper>
         </Container>
       </Paper>
+      <Footer/>
     </Container>
   );
 }
