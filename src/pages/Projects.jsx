@@ -25,7 +25,6 @@ function Projects() {
     let sections = gsap.utils.toArray(cardRef.current.children);
     gsap.to(sections, {
       xPercent: -100 * (sections.length - 1),
-      force3D: true,
       ease: "none",
       scrollTrigger: {
         trigger: containerRef.current,
