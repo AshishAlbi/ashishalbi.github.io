@@ -49,6 +49,7 @@ function Home() {
           gap:'5vh',
           padding: "2% 0 0",
           width: "100vw",
+          borderRadius:'0'
         }}>
         <Container
           maxWidth="xl"
