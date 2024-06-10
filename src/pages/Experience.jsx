@@ -2,24 +2,32 @@ import { Box, Icon, Paper, Stack, Typography } from "@mui/material";
 import BusinessCenterIcon from "@mui/icons-material/BusinessCenter";
 import SchoolIcon from "@mui/icons-material/School";
 import experienceCss from "./Experience.module.css";
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 
 function Experience() {
   const logoRef = useRef();
-  // useGSAP(() => {
-  //   let logos = gsap.utils.toArray(logoRef.current.children);
-  //   let tl = gsap.timeline({ repeat: -1 });
-  //   tl.to(logos, {
-  //     x: -logoRef.current.offsetWidth,
-  //     ease: "none",
-  //     duration: 10,
-  //     onComplete: () => {
-  //       gsap.set(logos, { x: 0 });
-  //     },
-  //   });
-  // });
+
+  useEffect(() => {
+    const content = logoRef.current;
+    const duplicateContent = content.innerHTML;
+    content.innerHTML += duplicateContent;
+
+    const totalWidth = content.scrollWidth / 2;
+    const duration = 35;
+
+    const animation = gsap.to(content, {
+      x: `-=${totalWidth}px`,
+      duration: duration,
+      ease: "linear",
+      repeat: -1,
+    });
+
+    return () => {
+      animation.kill();
+    };
+  }, []);
   return (
     <>
       <Stack
@@ -111,7 +119,7 @@ function Experience() {
           </Box>
         </Box>
       </Stack>
-      <Box sx={{ pt: "2em",width:'80vw',overflowX:'hidden' }}>
+      <Box sx={{ pt: "2em", width: "80vw", overflowX: "hidden" }}>
         <Typography variant="h5">Toolkit</Typography>
         <div className={experienceCss.content} ref={logoRef}>
           <img
@@ -160,46 +168,6 @@ function Experience() {
           />
           <img
             src="/assets/images/logos/expressLogo.png"
-            className={experienceCss.logos}
-          />
-          <img
-            src="/assets/images/logos/threeJsLogo.png"
-            className={experienceCss.logos}
-          />
-          <img
-            src="/assets/images/logos/jsLogo.png"
-            className={experienceCss.logos}
-          />
-          <img
-            src="/assets/images/logos/CSSLogo.png"
-            className={experienceCss.logos}
-          />
-          <img
-            src="/assets/images/logos/htmlLogo.png"
-            className={experienceCss.logos}
-          />
-          <img
-            src="/assets/images/logos/nodeJsLogo.png"
-            className={experienceCss.logos}
-          />
-          <img
-            src="/assets/images/logos/ReactLogo.png"
-            className={experienceCss.logos}
-          />
-          <img
-            src="/assets/images/logos/reduxLogo.png"
-            className={experienceCss.logos}
-          />
-          <img
-            src="/assets/images/logos/metaMaskLogo.png"
-            className={experienceCss.logos}
-          />
-          <img
-            src="/assets/images/logos/gitlabLogo.png"
-            className={experienceCss.logos}
-          />
-          <img
-            src="/assets/images/logos/mongoDbLogo.png"
             className={experienceCss.logos}
           />
         </div>

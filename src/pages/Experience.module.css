@@ -27,7 +27,7 @@
     display: flex;
     gap: 4vw;
     padding-top: 3em;
-    animation:  scroll 20s linear infinite;
+    /* animation:  scroll 20s linear infinite; */
   }
   
   @keyframes scroll {
@@ -38,3 +38,4 @@
         transform: translateX(-135%);
       }    
   }
+  
