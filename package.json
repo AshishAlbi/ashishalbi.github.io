@@ -23,6 +23,7 @@
     "hamburger-react": "^2.5.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "three": "^0.165.0",
     "typed.js": "^2.1.0",
     "vite-plugin-copy": "^0.1.6"
   },
