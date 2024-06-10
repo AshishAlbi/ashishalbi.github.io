@@ -19,7 +19,7 @@ function PcComponents() {
       <ambientLight intensity={2} />
       <directionalLight position={[0, 10, 45]} intensity={1} />
       <Float floatIntensity={2} speed={2}>
-        <mesh castShadow scale={2}>
+        <mesh castShadow scale={2} position={[0,-3,0]}>
           <primitive object={pc.scene} />
         </mesh>
       </Float>
