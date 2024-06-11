@@ -10,6 +10,7 @@ function Footer() {
       sx={{
         height: "10vh",
         display: "flex",
+        backgroundColor:'background.paper',
         flexDirection:{xs:'column',sm:'row'},
         alignItems: "center",
         justifyContent: "space-around",
