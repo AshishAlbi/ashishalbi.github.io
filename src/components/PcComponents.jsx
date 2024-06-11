@@ -2,12 +2,10 @@ import { useTheme } from "@mui/material/styles";
 import {
   Environment,
   Float,
-  OrbitControls,
-  useFBX,
   useGLTF,
 } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
-import React, { useEffect, useRef } from "react";
+import React from "react";
 
 function PcComponents() {
   const theme = useTheme();
