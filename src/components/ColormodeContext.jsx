@@ -1,12 +1,25 @@
 import { ThemeProvider, createTheme } from "@mui/material/styles";
-import { createContext, useContext, useMemo, useState } from "react";
+import { createContext, useContext, useEffect, useMemo, useState } from "react";
 
 const ColorModeContext = createContext({ toggleColorMode: () => {} });
 
 export const useColorMode = () => useContext(ColorModeContext);
 
 function ColorProvider({ children }) {
-  const [colorMode, setColorMode] = useState("light");
+  const [colorMode, setColorMode] = useState("");
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+    setColorMode(mediaQuery.matches?'dark':'light')
+    const handleChange = (e) => {
+      setColorMode(e.matches?'dark':'light')
+    };
+    mediaQuery.addEventListener('change', handleChange);
+    return () => {
+      mediaQuery.removeEventListener('change', handleChange);
+    };
+  }, []);
+
   const color = useMemo(
     () => ({
       toggleColorMode: () => {
