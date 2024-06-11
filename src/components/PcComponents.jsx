@@ -33,10 +33,10 @@ function PcComponents() {
             <primitive object={pc.scene} />
           </mesh>
         </Float>
-      ) : (
-        <mesh scale={2} position={[0, -3, 0]}>
-          <primitive object={pc.scene} />
-        </mesh>
+      ) : (''
+        // <mesh scale={2} position={[0, -3, 0]}>
+        //   <primitive object={pc.scene} />
+        // </mesh>
       )}
     </Canvas>
   );
