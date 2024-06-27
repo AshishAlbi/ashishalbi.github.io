@@ -68,7 +68,7 @@ function Experience() {
               <Typography>Innovature labs</Typography>
               <Typography color={"GrayText"}>Software engineer</Typography>
             </Box>
-            <Typography color={"GrayText"}>2022-present</Typography>
+            <Typography color={"GrayText"}>2022-2024</Typography>
           </Box>
         </Box>
         <Box>
