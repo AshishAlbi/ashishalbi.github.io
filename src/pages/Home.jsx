@@ -45,12 +45,12 @@ function Home() {
         elevation={0}
         ref={homeRef}
         sx={{
-          display:'flex',
-          flexDirection:'column',
-          gap:'5vh',
+          display: "flex",
+          flexDirection: "column",
+          gap: "5vh",
           padding: "2% 0 0",
           width: "100vw",
-          borderRadius:'0'
+          borderRadius: "0",
         }}>
         <Container
           maxWidth="xl"
@@ -94,7 +94,7 @@ function Home() {
               />
             </div>
             <Typography variant="h5">
-              with 2 years of experience dedicated to crafting innovative
+              With extensive experience dedicated to crafting innovative
               solutions and seamless digital experiences.
             </Typography>
             <SocialMediaCard />
@@ -121,7 +121,7 @@ function Home() {
           </Paper>
         </Container>
       </Paper>
-      <Footer/>
+      <Footer />
     </Container>
   );
 }
