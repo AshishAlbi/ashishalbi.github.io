@@ -113,7 +113,7 @@ function Home() {
           <Paper elevation={0} sx={{ padding: "5%" }}>
             <Experience />
           </Paper>
-          <Paper elevation={0} ref={projectRef} sx={{ padding: "5%" }}>
+          <Paper elevation={0} ref={projectRef} sx={{ padding: "2% 5% 5% 5% " }}>
             <Projects />
           </Paper>
           <Paper ref={aboutRef} elevation={0} sx={{ padding: "5%" }}>
