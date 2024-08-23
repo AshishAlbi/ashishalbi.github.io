@@ -45,7 +45,7 @@ function SocialMediaCard() {
       <a
         target={"_blank"}
         className={socialMediaCard.icon_content}
-        href="https://www.instagram.com/"
+        href="https://www.instagram.com/_a_sh_i_sh._?igsh=MWh2cGJwZDJzMHhuag=="
         aria-label="Instagram"
         data-social="instagram">
         <div className={socialMediaCard.filled}></div>
