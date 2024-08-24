@@ -1,7 +1,6 @@
 import { Box, Typography } from "@mui/material";
 import React from "react";
 import PcComponents from "../components/PcComponents";
-import SocialMediaCard from "../components/SocialMediaCard/SocialMediaCard";
 
 function AboutMe() {
   return (

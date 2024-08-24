@@ -1,9 +1,8 @@
-import { Box, Icon, Paper, Stack, Typography } from "@mui/material";
+import { Box, Stack, Typography } from "@mui/material";
 import BusinessCenterIcon from "@mui/icons-material/BusinessCenter";
 import SchoolIcon from "@mui/icons-material/School";
 import experienceCss from "./Experience.module.css";
 import React, { useEffect, useRef } from "react";
-import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 
 function Experience() {

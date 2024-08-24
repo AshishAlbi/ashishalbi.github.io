@@ -2,7 +2,6 @@ import { Box, IconButton, Menu, MenuItem, Typography } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import Hamburger from "hamburger-react";
 import React, { useState } from "react";
-import { useColorMode } from "./ColormodeContext";
 import ColormodeToggleSwitch from "./ColorModeToggleSwitch/ColormodeToggleSwitch";
 
 function Navbar({ scrollToHome, scrollToAbout, scrollToProject }) {

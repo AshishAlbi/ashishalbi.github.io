@@ -1,17 +1,12 @@
-// https://twitter.com/lusionltd/status/1701534187545636964
-// https://lusion.co
-
 import * as THREE from "three";
 import { useRef, useReducer, useMemo, Suspense } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import {
-  useGLTF,
   MeshTransmissionMaterial,
   Environment,
   Lightformer,
 } from "@react-three/drei";
 import {
-  CuboidCollider,
   BallCollider,
   Physics,
   RigidBody,

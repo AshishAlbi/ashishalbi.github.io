@@ -1,15 +1,14 @@
-import React, { lazy, Suspense, useEffect, useRef, useState } from "react";
+import React, { lazy,useEffect, useRef } from "react";
 import Navbar from "../components/Navbar";
-import Connectors from "../components/Connectors";
 import { Box, Container, Paper, Typography } from "@mui/material";
 import Typed from "typed.js";
 import Projects from "./Projects";
-import Loader from "../components/Loader/Loader";
 import DownloadResumeButton from "../components/Button/DownloadResumeButton";
-import AboutMe from "./AboutMe";
 import SocialMediaCard from "../components/SocialMediaCard/SocialMediaCard";
 import Footer from "../components/Footer";
+const Connectors = lazy(()=>import ("../components/Connectors"))
 const Experience = lazy(() => import("./Experience"));
+const AboutMe = lazy(()=>import("./AboutMe"))
 
 function Home() {
   const homeRef = useRef(null);

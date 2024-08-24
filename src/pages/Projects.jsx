@@ -1,9 +1,9 @@
 import { Typography } from "@mui/material";
-import React, { useRef } from "react";
-import Cards from "../components/Cards";
+import React, { lazy, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
 import { useGSAP } from "@gsap/react";
+const Cards = lazy(()=>import("../components/Cards"))
 gsap.registerPlugin(ScrollTrigger);
 
 function Projects() {
