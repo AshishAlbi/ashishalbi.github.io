@@ -1,20 +1,15 @@
 import * as THREE from "three";
-import { useRef, useReducer, useMemo, Suspense } from "react";
-import { Canvas, useFrame } from "@react-three/fiber";
+import { useRef, useReducer, useMemo } from "react";
+import { useFrame } from "@react-three/fiber";
 import {
   MeshTransmissionMaterial,
   Environment,
   Lightformer,
 } from "@react-three/drei";
-import {
-  BallCollider,
-  Physics,
-  RigidBody,
-} from "@react-three/rapier";
+import { BallCollider, Physics, RigidBody } from "@react-three/rapier";
 import { EffectComposer, N8AO } from "@react-three/postprocessing";
 import { easing } from "maath";
-import { Html } from "@react-three/drei";
-import { useTheme } from "@mui/material/styles";
+import ThreeCanvas from "./ThreeCanvas";
 
 const accents = ["#4060ff", "#20ffa0", "#ff4060", "#ffcc00"];
 const shuffle = (accent = 0) => [
@@ -30,85 +25,64 @@ const shuffle = (accent = 0) => [
 ];
 
 function Connectors() {
-  const theme = useTheme();
   const [accent, click] = useReducer((state) => ++state % accents.length, 0);
   const connectors = useMemo(() => shuffle(accent), [accent]);
   return (
-    <Canvas
-      onClick={click}
-      shadows
-      dpr={[1, 1.5]}
-      gl={{ antialias: false }}
-      style={{ width: "100%", height: "100%", borderRadius: "30px" }}
-      camera={{ position: [0, 0, 15], fov: 30 }}>
-      <color
-        attach="background"
-        args={[theme.palette.mode === "light" ? "white" : "black"]}
-      />
-      <Suspense fallback={<Html center>Loading......</Html>}>
-        <ambientLight intensity={0.4} />
-        <spotLight
-          position={[10, 10, 10]}
-          angle={0.15}
-          penumbra={1}
-          intensity={1}
-          castShadow
-        />
-        <Physics /*debug*/ gravity={[0, 0, 0]}>
-          <Pointer />
-          {
-            connectors.map((props, i) => <Connector key={i} {...props} />) /* prettier-ignore */
-          }
-          <Connector position={[10, 10, 5]}>
-            <Model>
-              <MeshTransmissionMaterial
-                clearcoat={1}
-                thickness={0.1}
-                anisotropicBlur={0.1}
-                chromaticAberration={0.1}
-                samples={8}
-                resolution={512}
-              />
-            </Model>
-          </Connector>
-        </Physics>
-        <EffectComposer disableNormalPass multisampling={8}>
-          <N8AO distanceFalloff={1} aoRadius={1} intensity={4} />
-        </EffectComposer>
-        <Environment resolution={256}>
-          <group rotation={[-Math.PI / 3, 0, 1]}>
-            <Lightformer
-              form="circle"
-              intensity={4}
-              rotation-x={Math.PI / 2}
-              position={[0, 5, -9]}
-              scale={2}
+    <ThreeCanvas cameraPosition={[0,0,15]} isPcComponent={false} handleConnecterClick={click}>
+      <Physics /*debug*/ gravity={[0, 0, 0]}>
+        <Pointer />
+        {
+          connectors.map((props, i) => <Connector key={i} {...props} />) /* prettier-ignore */
+        }
+        <Connector position={[10, 10, 5]}>
+          <Model>
+            <MeshTransmissionMaterial
+              clearcoat={1}
+              thickness={0.1}
+              anisotropicBlur={0.1}
+              chromaticAberration={0.1}
+              samples={8}
+              resolution={512}
             />
-            <Lightformer
-              form="circle"
-              intensity={2}
-              rotation-y={Math.PI / 2}
-              position={[-5, 1, -1]}
-              scale={2}
-            />
-            <Lightformer
-              form="circle"
-              intensity={2}
-              rotation-y={Math.PI / 2}
-              position={[-5, -1, -1]}
-              scale={2}
-            />
-            <Lightformer
-              form="circle"
-              intensity={2}
-              rotation-y={-Math.PI / 2}
-              position={[10, 1, 0]}
-              scale={8}
-            />
-          </group>
-        </Environment>
-      </Suspense>
-    </Canvas>
+          </Model>
+        </Connector>
+      </Physics>
+      <EffectComposer disableNormalPass multisampling={8}>
+        <N8AO distanceFalloff={1} aoRadius={1} intensity={4} />
+      </EffectComposer>
+      <Environment resolution={256}>
+        <group rotation={[-Math.PI / 3, 0, 1]}>
+          <Lightformer
+            form="circle"
+            intensity={4}
+            rotation-x={Math.PI / 2}
+            position={[0, 5, -9]}
+            scale={2}
+          />
+          <Lightformer
+            form="circle"
+            intensity={2}
+            rotation-y={Math.PI / 2}
+            position={[-5, 1, -1]}
+            scale={2}
+          />
+          <Lightformer
+            form="circle"
+            intensity={2}
+            rotation-y={Math.PI / 2}
+            position={[-5, -1, -1]}
+            scale={2}
+          />
+          <Lightformer
+            form="circle"
+            intensity={2}
+            rotation-y={-Math.PI / 2}
+            position={[10, 1, 0]}
+            scale={8}
+          />
+        </group>
+      </Environment>
+    </ThreeCanvas>
   );
 }
 

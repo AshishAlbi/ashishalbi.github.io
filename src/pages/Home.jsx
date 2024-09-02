@@ -6,7 +6,7 @@ import Projects from "./Projects";
 import DownloadResumeButton from "../components/Button/DownloadResumeButton";
 import SocialMediaCard from "../components/SocialMediaCard/SocialMediaCard";
 import Footer from "../components/Footer";
-const Connectors = lazy(()=>import ("../components/Connectors"))
+const Connectors = lazy(()=>import ("../components/ThreeFibre/Connectors"))
 const Experience = lazy(() => import("./Experience"));
 const AboutMe = lazy(()=>import("./AboutMe"))
 
