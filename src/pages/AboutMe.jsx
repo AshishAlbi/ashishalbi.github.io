@@ -1,6 +1,6 @@
 import { Box, Typography } from "@mui/material";
 import React from "react";
-import PcComponents from "../components/PcComponents";
+import PcComponents from "../components/ThreeFibre/PcComponents";
 
 function AboutMe() {
   return (
