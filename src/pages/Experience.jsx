@@ -2,31 +2,34 @@ import { Box, Stack, Typography } from "@mui/material";
 import BusinessCenterIcon from "@mui/icons-material/BusinessCenter";
 import SchoolIcon from "@mui/icons-material/School";
 import experienceCss from "./Experience.module.css";
-import React, { useEffect, useRef } from "react";
+import React, {useRef } from "react";
 import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import innovatureLogo from "../assets/images/logos/innovature_labs_logo.jpg"
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { skilDetails } from "../Constants/details";
 
 function Experience() {
   const logoRef = useRef();
+  useGSAP(() => {
+    gsap.registerPlugin(ScrollTrigger);
+    let logos = gsap.utils.toArray(logoRef.current);
+    gsap.fromTo(
+      logos,
+      { opacity: 0 },
+      {
+        opacity: 1,
+        ease: "none",
+        duration: 2,
+        overwrite: "auto",
+        scrollTrigger: {
+          trigger: logoRef.current,
+          toggleActions: "play complete none reset",
+        },
+      }
+    );
+  });
 
-  useEffect(() => {
-    const content = logoRef.current;
-    const duplicateContent = content.innerHTML;
-    content.innerHTML += duplicateContent;
-
-    const totalWidth = content.scrollWidth / 2;
-    const duration = 35;
-
-    const animation = gsap.to(content, {
-      x: `-=${totalWidth}px`,
-      duration: duration,
-      ease: "linear",
-      repeat: -1,
-    });
-
-    return () => {
-      animation.kill();
-    };
-  }, []);
   return (
     <>
       <Stack
@@ -60,7 +63,7 @@ function Experience() {
               pt: "1em",
             }}>
             <img
-              src="/assets/images/logos/innovature_labs_logo.jpg"
+              src={innovatureLogo}
               style={{ width: "7vh", height: "7vh", borderRadius: "50%" }}
             />
             <Box sx={{ display: "flex", flexDirection: "column", flex: 1 }}>
@@ -118,57 +121,16 @@ function Experience() {
           </Box>
         </Box>
       </Stack>
-      <Box sx={{ pt: "2em", width: "80vw", overflowX: "hidden" }}>
+      <Box sx={{ pt: "2em", width: "80vw" }}>
         <Typography variant="h5">Toolkit</Typography>
         <div className={experienceCss.content} ref={logoRef}>
-          <img
-            src="/assets/images/logos/threeJsLogo.png"
-            className={experienceCss.logos}
-          />
-          <img
-            src="/assets/images/logos/jsLogo.png"
-            className={experienceCss.logos}
-          />
-          <img
-            src="/assets/images/logos/CSSLogo.png"
-            className={experienceCss.logos}
-          />
-          <img
-            src="/assets/images/logos/htmlLogo.png"
-            className={experienceCss.logos}
-          />
-          <img
-            src="/assets/images/logos/nodeJsLogo.png"
-            className={experienceCss.logos}
-          />
-          <img
-            src="/assets/images/logos/ReactLogo.png"
-            className={experienceCss.logos}
-          />
-          <img
-            src="/assets/images/logos/reduxLogo.png"
-            className={experienceCss.logos}
-          />
-          <img
-            src="/assets/images/logos/metaMaskLogo.png"
-            className={experienceCss.logos}
-          />
-          <img
-            src="/assets/images/logos/gitlabLogo.png"
-            className={experienceCss.logos}
-          />
-          <img
-            src="/assets/images/logos/mongoDbLogo.png"
-            className={experienceCss.logos}
-          />
-          <img
-            src="/assets/images/logos/mysqlLogo.png"
-            className={experienceCss.logos}
-          />
-          <img
-            src="/assets/images/logos/expressLogo.png"
-            className={experienceCss.logos}
-          />
+          {skilDetails.map((skill) => (
+            <img
+            key={skill.id}
+              src={skill.image}
+              className={experienceCss.logos}
+            />
+          ))}
         </div>
       </Box>
     </>

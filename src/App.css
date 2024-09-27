@@ -38,6 +38,6 @@ html {
 
 @font-face {
   font-family: dancingScript;
-  src: url(../assets/fonts/DancingScript-VariableFont_wght.ttf);
+  src: url(./assets/fonts/DancingScript-VariableFont_wght.ttf);
   font-style: normal;
 }
