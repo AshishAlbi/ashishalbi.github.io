@@ -4,7 +4,7 @@ import buttonStyle from "./DownloadResume.module.css";
 function DownloadResumeButton() {
   const downloadResume = async () => {
     try {
-      const response = await fetch('/assets/ashishAlbiResume.pdf');
+      const response = await fetch('/ashishAlbiResume.pdf');
       const blob = await response.blob();
 
       const url = window.URL.createObjectURL(blob);

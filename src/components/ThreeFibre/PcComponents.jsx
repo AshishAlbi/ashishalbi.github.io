@@ -4,7 +4,7 @@ import ThreeCanvas from "./ThreeCanvas";
 import { isMobileDevice } from "../../utils/isMobile";
 
 function PcComponents() {
-  const pc = useGLTF("/assets/models/mac-draco.glb");
+  const pc = useGLTF("/models/mac-draco.glb");
   const isMobile = isMobileDevice();
 
   return (

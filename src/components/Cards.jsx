@@ -21,13 +21,13 @@ function Cards({ projectName, image, url, discription }) {
         backgroundColor:
           theme.palette.mode === "light" ? "lightgrey" : "#353535",
         flexDirection: "column",
-        height: { sm: "80vh", xs: "65vh" },
+        height: { sm: "75vh", xs: "65vh" },
       }}>
       <CardMedia
         component="img"
         sx={{
           width: "100%",
-          height: { sm: "65vh", xs: "55vh" },
+          height: { sm: "60vh", xs: "55vh" },
           objectFit: "fill",
         }}
         image={image}
