@@ -1,4 +1,4 @@
-import { Environment } from "@react-three/drei";
+import { Environment, Float } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import { useTheme } from "@mui/material/styles";
 import { Html } from "@react-three/drei";
@@ -30,8 +30,10 @@ const ThreeCanvas = ({
           intensity={1}
           castShadow
         />
-        {isPcComponent && <Environment preset="city" />}
-        {children}
+        <Float floatIntensity={2} speed={2}>
+          {isPcComponent && <Environment preset="city" />}
+          {children}
+        </Float>
       </Suspense>
     </Canvas>
   );

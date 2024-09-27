@@ -1,4 +1,4 @@
-import { Float, useGLTF } from "@react-three/drei";
+import { useGLTF } from "@react-three/drei";
 import React from "react";
 import ThreeCanvas from "./ThreeCanvas";
 import { isMobileDevice } from "../../utils/isMobile";
@@ -14,11 +14,9 @@ function PcComponents() {
           <primitive object={pc.scene} />
         </mesh>
       ) : (
-        <Float floatIntensity={2} speed={2}>
           <mesh scale={2} position={[0, -3, 0]}>
             <primitive object={pc.scene} />
           </mesh>
-        </Float>
       )}
     </ThreeCanvas>
   );
