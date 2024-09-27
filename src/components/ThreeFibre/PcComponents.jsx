@@ -1,7 +1,6 @@
 import { useGLTF } from "@react-three/drei";
 import React from "react";
 import ThreeCanvas from "./ThreeCanvas";
-import { isMobileDevice } from "../../utils/isMobile";
 
 function PcComponents() {
   const pc = useGLTF("/models/mac-draco.glb");
