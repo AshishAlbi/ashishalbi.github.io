@@ -15,6 +15,9 @@ import mysqlLogo from "../assets/images/logos/mysqlLogo.png";
 import nodeJsLogo from "../assets/images/logos/nodeJsLogo.png";
 import reduxLogo from "../assets/images/logos/reduxLogo.png";
 import threeJsLogo from "../assets/images/logos/threeJsLogo.png";
+import gitLogo from "../assets/images/logos/gitLogo.png"
+import tailwindLogo from "../assets/images/logos/tailwindLogo.png"
+import jestLogo from "../assets/images/logos/jestLogo.png"
 
 export const projectDetails = [
   {
@@ -82,4 +85,7 @@ export const skilDetails = [
   { id: 10, image: reduxLogo },
   { id: 11, image: metaMaskLogo },
   { id: 12, image: gitlabLogo },
+  { id: 13, image: tailwindLogo },
+  { id: 14, image: jestLogo },
+  { id: 15, image: gitLogo },
 ];
