@@ -6,7 +6,7 @@ import DownloadResumeButton from "../components/Button/DownloadResumeButton";
 import SocialMediaCard from "../components/SocialMediaCard/SocialMediaCard";
 import Footer from "../components/Footer";
 import { isMobileDevice } from "../utils/isMobile";
-import EarthModel from "../components/ThreeFibre/justSphere";
+import EarthModel from "../components/ThreeFibre/EarthModel";
 const Projects = lazy(() => import("./Projects"));
 const Connectors = lazy(() => import("../components/ThreeFibre/Connectors"));
 const Experience = lazy(() => import("./Experience"));
