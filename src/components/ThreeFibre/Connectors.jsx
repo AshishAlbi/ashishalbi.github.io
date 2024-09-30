@@ -10,6 +10,7 @@ import { BallCollider, Physics, RigidBody } from "@react-three/rapier";
 import { EffectComposer, N8AO } from "@react-three/postprocessing";
 import { easing } from "maath";
 import ThreeCanvas from "./ThreeCanvas";
+import { isMobileDevice } from "../../utils/isMobile";
 
 const accents = ["#4060ff", "#20ffa0", "#ff4060", "#ffcc00"];
 const shuffle = (accent = 0) => [
@@ -23,12 +24,16 @@ const shuffle = (accent = 0) => [
   { color: accents[accent], roughness: 0.1, accent: true },
   { color: accents[accent], roughness: 0.1, accent: true },
 ];
+const isMobile = isMobileDevice();
 
 function Connectors() {
   const [accent, click] = useReducer((state) => ++state % accents.length, 0);
   const connectors = useMemo(() => shuffle(accent), [accent]);
   return (
-    <ThreeCanvas cameraPosition={[0,0,15]} isPcComponent={false} handleConnecterClick={click}>
+    <ThreeCanvas
+      cameraPosition={[0, 0, 15]}
+      isPcComponent={false}
+      handleConnecterClick={click}>
       <Physics /*debug*/ gravity={[0, 0, 0]}>
         <Pointer />
         {
@@ -37,48 +42,52 @@ function Connectors() {
         <Connector position={[10, 10, 5]}>
           <Model>
             <MeshTransmissionMaterial
-              clearcoat={1}
-              thickness={0.1}
+              clearcoat={isMobile ? 0.5 : 1}
+              thickness={isMobile ? 0.05 : 0.1}
               anisotropicBlur={0.1}
               chromaticAberration={0.1}
-              samples={8}
-              resolution={512}
+              samples={isMobile ? 4 : 8}
+              resolution={isMobile ? 256 : 512}
             />
           </Model>
         </Connector>
       </Physics>
-      <EffectComposer disableNormalPass multisampling={8}>
-        <N8AO distanceFalloff={1} aoRadius={1} intensity={4} />
+      <EffectComposer disableNormalPass multisampling={isMobile ? 4 : 8}>
+        <N8AO
+          distanceFalloff={isMobile ? 0.5 : 1}
+          aoRadius={isMobile ? 0.5 : 1}
+          intensity={isMobile ? 2 : 4}
+        />
       </EffectComposer>
-      <Environment resolution={256}>
+      <Environment resolution={isMobile ? 128 : 256}>
         <group rotation={[-Math.PI / 3, 0, 1]}>
           <Lightformer
             form="circle"
-            intensity={4}
+            intensity={isMobile ? 2 : 4}
             rotation-x={Math.PI / 2}
             position={[0, 5, -9]}
-            scale={2}
+            scale={isMobile ? 1 : 2}
           />
           <Lightformer
             form="circle"
-            intensity={2}
+            intensity={isMobile ? 1 : 2}
             rotation-y={Math.PI / 2}
             position={[-5, 1, -1]}
-            scale={2}
+            scale={isMobile ? 1 : 2}
           />
           <Lightformer
             form="circle"
-            intensity={2}
+            intensity={isMobile ? 1 : 2}
             rotation-y={Math.PI / 2}
             position={[-5, -1, -1]}
-            scale={2}
+            scale={isMobile ? 1 : 2}
           />
           <Lightformer
             form="circle"
-            intensity={2}
+            intensity={isMobile ? 1 : 2}
             rotation-y={-Math.PI / 2}
             position={[10, 1, 0]}
-            scale={8}
+            scale={isMobile ? 4 : 8}
           />
         </group>
       </Environment>
@@ -100,18 +109,18 @@ function Connector({
   useFrame((state, delta) => {
     delta = Math.min(0.1, delta);
     api.current?.applyImpulse(
-      vec.copy(api.current.translation()).negate().multiplyScalar(0.2)
+      vec.copy(api.current.translation()).negate().multiplyScalar(0.1)
     );
   });
   return (
     <RigidBody
-      linearDamping={4}
-      angularDamping={1}
+      linearDamping={isMobile ? 6 : 4}
+      angularDamping={isMobile ? 2 : 1}
       friction={0.1}
       position={pos}
       ref={api}
       colliders={false}>
-      <BallCollider args={[1, 64, 64]} />
+      <BallCollider args={[1]} />
       {children ? children : <Model {...props} />}
       {accent && (
         <pointLight intensity={4} distance={2.5} color={props.color} />
@@ -148,8 +157,11 @@ function Model({ children, color = "white", roughness = 0, ...props }) {
     easing.dampC(ref.current.material.color, color, 0.2, delta);
   });
   return (
-    <mesh ref={ref} castShadow receiveShadow>
-      <sphereGeometry args={[1, 64, 64]} />
+    <mesh
+      ref={ref}
+      castShadow={isMobile ? false : true}
+      receiveShadow={isMobile ? false : true}>
+      <sphereGeometry args={[1, isMobile ? 16 : 64, isMobile ? 16 : 64]} />
       <meshStandardMaterial metalness={0.2} roughness={roughness} />
       {children}
     </mesh>

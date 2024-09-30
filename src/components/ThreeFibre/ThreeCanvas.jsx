@@ -1,8 +1,10 @@
-import { Environment, Float } from "@react-three/drei";
+import { Environment, Float, Preload } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import { useTheme } from "@mui/material/styles";
 import { Html } from "@react-three/drei";
 import React, { Suspense } from "react";
+import { isMobileDevice } from "../../utils/isMobile";
+const isMobile = isMobileDevice();
 
 const ThreeCanvas = ({
   cameraPosition,
@@ -14,7 +16,7 @@ const ThreeCanvas = ({
   return (
     <Canvas
       onClick={handleConnecterClick}
-      gl={{ antialias: true }}
+      gl={{ antialias: !isMobile }}
       style={{ width: "100%", height: "100%", borderRadius: "30px" }}
       camera={{ fov: 35, position: cameraPosition }}>
       <color
@@ -31,9 +33,12 @@ const ThreeCanvas = ({
           castShadow
         />
         <Float floatIntensity={2} speed={2}>
-          {isPcComponent && <Environment preset="city" />}
+          {isPcComponent && (
+            <Environment files={'/models/skyenvMap.hdr'} />
+          )}
           {children}
         </Float>
+        <Preload all />
       </Suspense>
     </Canvas>
   );

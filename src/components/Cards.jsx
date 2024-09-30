@@ -17,7 +17,7 @@ function Cards({ projectName, image, url, discription }) {
     <Card
       sx={{
         display: "flex",
-        width: { sm: "28vw", xs: "80vw" },
+        width: { sm: "26vw", xs: "80vw" },
         backgroundColor:
           theme.palette.mode === "light" ? "lightgrey" : "#353535",
         flexDirection: "column",
@@ -25,6 +25,7 @@ function Cards({ projectName, image, url, discription }) {
       }}>
       <CardMedia
         component="img"
+        loading="lazy"
         sx={{
           width: "100%",
           height: { sm: "60vh", xs: "55vh" },

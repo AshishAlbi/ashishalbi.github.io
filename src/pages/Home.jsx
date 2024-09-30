@@ -1,20 +1,23 @@
-import React, { lazy,useEffect, useRef } from "react";
+import React, { lazy, useEffect, useRef } from "react";
 import Navbar from "../components/Navbar";
 import { Box, Container, Paper, Typography } from "@mui/material";
 import Typed from "typed.js";
-import Projects from "./Projects";
 import DownloadResumeButton from "../components/Button/DownloadResumeButton";
 import SocialMediaCard from "../components/SocialMediaCard/SocialMediaCard";
 import Footer from "../components/Footer";
-const Connectors = lazy(()=>import ("../components/ThreeFibre/Connectors"))
+import { isMobileDevice } from "../utils/isMobile";
+import EarthModel from "../components/ThreeFibre/justSphere";
+const Projects = lazy(() => import("./Projects"));
+const Connectors = lazy(() => import("../components/ThreeFibre/Connectors"));
 const Experience = lazy(() => import("./Experience"));
-const AboutMe = lazy(()=>import("./AboutMe"))
+const AboutMe = lazy(() => import("./AboutMe"));
 
 function Home() {
   const homeRef = useRef(null);
   const aboutRef = useRef(null);
   const projectRef = useRef(null);
   const typeRef = useRef(null);
+  const isMobile = isMobileDevice()
   const scrollToComponent = (componentRef) => {
     if (componentRef.current) {
       componentRef.current.scrollIntoView({ behavior: "smooth" });
@@ -105,14 +108,17 @@ function Home() {
               height: { xs: "50vh", sm: "90vh" },
               flex: 1,
             }}>
-            <Connectors />
+            {isMobile ? <EarthModel/> : <Connectors />}
           </Box>
         </Container>
         <Container maxWidth="xl">
           <Paper elevation={0} sx={{ padding: "5%" }}>
             <Experience />
           </Paper>
-          <Paper elevation={0} ref={projectRef} sx={{ padding: "2% 5% 5% 5% " }}>
+          <Paper
+            elevation={0}
+            ref={projectRef}
+            sx={{ padding: "2% 5% 5% 5% " }}>
             <Projects />
           </Paper>
           <Paper ref={aboutRef} elevation={0} sx={{ padding: "5%" }}>
