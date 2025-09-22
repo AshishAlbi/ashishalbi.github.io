@@ -1,5 +1,4 @@
 @import "tailwindcss";
-
 @theme {
-    --font-dancing: "Dancing Script", cursive;
-  }
+  --font-dancing: "Dancing Script", cursive;
+}
