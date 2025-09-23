@@ -5,6 +5,7 @@ export default function ThemeToggle() {
 
   useEffect(() => {
     const html = document.documentElement;
+    console.log("Dark mode:", darkMode);
     if (darkMode) {
       html.classList.add("dark");
     } else {

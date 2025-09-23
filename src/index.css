@@ -2,3 +2,4 @@
 @theme {
   --font-dancing: "Dancing Script", cursive;
 }
+@custom-variant dark (&:where(.dark, .dark *));
