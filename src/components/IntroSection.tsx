@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import Typed from "typed.js";
 import SocialMediaCard from "./socialMediaCard/SocialMediaCard";
+import DownloadResumeButton from "./button/DownloadResumeButton";
 
 function IntroSection() {
   const typeRef = useRef(null);
@@ -17,7 +18,7 @@ function IntroSection() {
     };
   }, []);
   return (
-    <div className="flex w-full h-100 !p-20">
+    <div className="flex w-full h-100 !p-20 !pt-30">
       <div className="flex-1 bg-white dark:bg-gray-800 dark:text-white flex flex-col gap-2.5 items-start relative top-1/4">
         <p className="text-2xl">
           Hello,I'm <span className="font-mono font-semibold">Ashish</span>,
@@ -31,7 +32,8 @@ function IntroSection() {
           With extensive experience dedicated to crafting innovative solutions
           and seamless digital experiences.
         </p>
-        <SocialMediaCard/>
+        <SocialMediaCard />
+        <DownloadResumeButton />
       </div>
       <div className="flex-1">TBD</div>
     </div>
